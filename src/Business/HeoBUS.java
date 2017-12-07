@@ -54,10 +54,10 @@ public class HeoBUS
         String sql="SELECT DISTINCT * FROM `heo` WHERE MaHeo IN (SELECT C.MaHeo FROM ctchuong C JOIN chuong CH on CH.MaChuong= C.MaChuong WHERE C.MaChuong ='"+ id+"')";
         return DB.getData(sql);
     }
-    public boolean ThemHeoCon(String idMaLoaiHeo, String idHeoMe, String idHeoCha, String NgaySinh, String gt ) throws SQLException
+    public boolean ThemHeoCon( String idHeoMe, String idHeoCha, String NgaySinh, String gt ) throws SQLException
     {
-        String sql="INSERT INTO `heo`( `MaLoaiHeo`, `TinhTrang`, `HeoMe`, `HeoCha`, `NgaySinh`, `GioiTinh`) VALUES "
-                + "( '"+ idMaLoaiHeo+"','DN','"+ idHeoMe+"','"+idHeoCha+"','"+NgaySinh+"','"+gt+"')";
+        String sql="INSERT INTO `heo`(  `TinhTrang`, `HeoMe`, `HeoCha`, `NgaySinh`, `GioiTinh`) VALUES "
+                + "( 'DN','"+ idHeoMe+"','"+idHeoCha+"','"+NgaySinh+"','"+gt+"')";
         if(DB.updateData(sql))
             return true;
         return false;
@@ -80,9 +80,16 @@ public class HeoBUS
         }
         return sResult;
     }
-    public boolean ThemCaNang(String cannag,String ngaycan,String maheo) throws SQLException
+    public boolean ThemCanNang(String cannag,String ngaycan,String maheo) throws SQLException
     {
         String sql="INSERT INTO `cannang`(`CanNang`, `NgayCan`, `MaHeo`) VALUES ("+ cannag +",'"+ngaycan+"','"+maheo+"')";
+        if(DB.updateData(sql))
+            return true;
+        return false;
+    }
+    public boolean ThemCtChuong(String idHeo, String idChuong, String Ngay) throws SQLException
+    {
+        String sql="INSERT INTO `ctchuong`(`MaHeo`, `MaChuong`, `NgayNhapChuong`) VALUES ('"+idHeo+"','"+idChuong+"','"+Ngay+"')";
         if(DB.updateData(sql))
             return true;
         return false;
