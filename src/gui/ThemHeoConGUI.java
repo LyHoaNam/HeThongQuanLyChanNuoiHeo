@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import gui.HeoGUI;
 
 /**
  *
@@ -26,8 +27,21 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
     /**
      * Creates new form ThemHeoGUI
      */
-    public ThemHeoConGUI() {
+    
+    private static ThemHeoConGUI obj=null;
+    public static ThemHeoConGUI getObj(String sMaChuong)
+    { if(obj==null){
+        obj=new ThemHeoConGUI(sMaChuong); 
+        }
+        return obj; 
+    }
+    private ThemHeoConGUI(String sMaChuong) {
         initComponents();
+        txtMaChuong.setText(sMaChuong);
+    }
+     private ThemHeoConGUI() {
+        initComponents();
+       
     }
 
     /**
@@ -39,12 +53,6 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         panelContain = new javax.swing.JPanel();
         DateNS = new com.toedter.calendar.JDateChooser();
         txtMaHeoCha = new javax.swing.JTextField();
@@ -59,25 +67,12 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
         btnThem = new javax.swing.JToggleButton();
         cbGioiTinh = new javax.swing.JComboBox<>();
         btnXoaHeo = new javax.swing.JToggleButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
+        lbMaChuong = new javax.swing.JLabel();
         lbGioiTinh = new javax.swing.JLabel();
-        lbConTrong = new javax.swing.JLabel();
-        txtConTrong = new javax.swing.JTextField();
+        txtMaChuong = new javax.swing.JTextField();
 
-        jLabel1.setText("jLabel1");
-
-        jToggleButton1.setText("jToggleButton1");
-
-        jLabel6.setText("jLabel6");
-
-        jLabel7.setText("jLabel7");
-
-        jLabel9.setText("jLabel9");
-
-        jTextField1.setText("jTextField1");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("THÊM HEO CON");
 
         panelContain.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -117,6 +112,11 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
                 btnThemMouseClicked(evt);
             }
         });
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
         cbGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đực", "Cái" }));
 
@@ -132,13 +132,11 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel5.setText("Mã chuồng:");
+        lbMaChuong.setText("Mã chuồng:");
 
         lbGioiTinh.setText("Giới tính");
 
-        lbConTrong.setText("Còn trống:");
+        txtMaChuong.setText("jTextField2");
 
         javax.swing.GroupLayout panelContainLayout = new javax.swing.GroupLayout(panelContain);
         panelContain.setLayout(panelContainLayout);
@@ -153,41 +151,32 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
                         .addComponent(btnXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(92, 92, 92))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContainLayout.createSequentialGroup()
-                        .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelContainLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtMaHeoMe, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(lbGioiTinh))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbGioiTinh, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtMaHeoCha, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)))
                             .addGroup(panelContainLayout.createSequentialGroup()
                                 .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContainLayout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtMaHeoMe, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(49, 49, 49))
-                                    .addGroup(panelContainLayout.createSequentialGroup()
-                                        .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel5))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(spnCanNang, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))
-                                        .addGap(48, 48, 48)))
-                                .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelContainLayout.createSequentialGroup()
-                                        .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(lbGioiTinh))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(cbGioiTinh, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtMaHeoCha, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)))
-                                    .addGroup(panelContainLayout.createSequentialGroup()
-                                        .addComponent(lbConTrong)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtConTrong, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelContainLayout.createSequentialGroup()
-                                .addComponent(DateNS, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel2)
+                                    .addComponent(lbMaChuong))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(spnCanNang, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                                    .addComponent(txtMaChuong))
+                                .addGap(48, 48, 48)
+                                .addComponent(DateNS, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)))
                         .addGap(34, 34, 34))))
         );
         panelContainLayout.setVerticalGroup(
@@ -205,19 +194,16 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
                     .addComponent(spnCanNang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbGioiTinh))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(lbConTrong)
-                    .addComponent(txtConTrong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnThem)
-                    .addComponent(DateNS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbMaChuong)
+                    .addComponent(DateNS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMaChuong, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnThem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 18, Short.MAX_VALUE)
                 .addGroup(panelContainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnXacNhan, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                     .addComponent(btnXoaHeo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -228,17 +214,18 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ 
     private void btnThemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMouseClicked
         // TODO add your handling code here:
         
-        DefaultTableModel model;
+            DefaultTableModel model;
             model = (DefaultTableModel) tableThemHeoCon.getModel();
             Vector vector=new Vector();
             int stt=tableThemHeoCon.getRowCount()+1;
             vector.add(stt);
             vector.add(spnCanNang.getValue());
             vector.add(cbGioiTinh.getSelectedItem());
+            vector.add(txtMaChuong.getText().toString());
             model.addRow(vector);
     }//GEN-LAST:event_btnThemMouseClicked
 
@@ -267,22 +254,26 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
         
         
         String sDateNS=((JTextField)DateNS.getDateEditor().getUiComponent()).getText();
+        System.out.println(sDateNS);
         int iCountTrue=0;
         for(int i=0;i<n;i++)
         {
         try {
             String sCanNang=tableThemHeoCon.getModel().getValueAt(i, 1).toString();
             String sGioiTinh=tableThemHeoCon.getModel().getValueAt(i,2).toString();
+            String sIdChuong=tableThemHeoCon.getModel().getValueAt(i, 3).toString();
             if(sGioiTinh =="Đực") 
             sGioiTinh="D";
             else
             sGioiTinh="C";
-            if(objHeo.ThemHeoCon("LH04",txtMaHeoMe.getText(),txtMaHeoCha.getText(),sDateNS,sGioiTinh))
+            
+            if(objHeo.ThemHeoCon(txtMaHeoMe.getText(),txtMaHeoCha.getText(),sDateNS,sGioiTinh))
             {
                 
                 HeoBUS objMAHEO=new HeoBUS();
                 String sIdHeo=objMAHEO.getIDHeo();
-                if(objHeo.ThemCaNang(sCanNang, sDateNS, sIdHeo))
+                if(objHeo.ThemCanNang(sCanNang, sDateNS, sIdHeo))
+                    if(objHeo.ThemCtChuong(sIdHeo, sIdChuong, sDateNS))
                     iCountTrue++;
                
             }
@@ -301,6 +292,10 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
             
         
     }//GEN-LAST:event_btnXacNhanActionPerformed
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnThemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,24 +339,16 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnXacNhan;
     private javax.swing.JToggleButton btnXoaHeo;
     private javax.swing.JComboBox<String> cbGioiTinh;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JLabel lbConTrong;
     private javax.swing.JLabel lbGioiTinh;
+    private javax.swing.JLabel lbMaChuong;
     private javax.swing.JPanel panelContain;
     private javax.swing.JSpinner spnCanNang;
     private javax.swing.JTable tableThemHeoCon;
-    private javax.swing.JTextField txtConTrong;
+    private javax.swing.JTextField txtMaChuong;
     private javax.swing.JTextField txtMaHeoCha;
     private javax.swing.JTextField txtMaHeoMe;
     // End of variables declaration//GEN-END:variables

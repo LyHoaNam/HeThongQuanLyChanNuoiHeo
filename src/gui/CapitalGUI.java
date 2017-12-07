@@ -44,10 +44,21 @@ public class CapitalGUI extends javax.swing.JFrame {
         jLbBaoCaoThongKe = new javax.swing.JLabel();
         panelContain = new javax.swing.JPanel();
         panelTrungChu = new javax.swing.JPanel();
+        panelTitle = new javax.swing.JPanel();
+        lbExit = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanelMenu.setBackground(new java.awt.Color(51, 51, 51));
+        PanelMenu.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                PanelMenuMouseDragged(evt);
+            }
+        });
 
         jLbKho.setBackground(new java.awt.Color(51, 51, 51));
         jLbKho.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -136,35 +147,73 @@ public class CapitalGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getContentPane().add(PanelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, 670));
+
         panelContain.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout panelTrungChuLayout = new javax.swing.GroupLayout(panelTrungChu);
         panelTrungChu.setLayout(panelTrungChuLayout);
         panelTrungChuLayout.setHorizontalGroup(
             panelTrungChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1213, Short.MAX_VALUE)
+            .addGap(0, 919, Short.MAX_VALUE)
         );
         panelTrungChuLayout.setVerticalGroup(
             panelTrungChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 670, Short.MAX_VALUE)
         );
 
         panelContain.add(panelTrungChu, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        getContentPane().add(panelContain, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 50, -1, 670));
+
+        panelTitle.setBackground(new java.awt.Color(102, 102, 102));
+        panelTitle.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panelTitleMouseDragged(evt);
+            }
+        });
+
+        lbExit.setFont(new java.awt.Font("IrisUPC", 0, 11)); // NOI18N
+        lbExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbExit.setIcon(new javax.swing.ImageIcon("C:\\Users\\cuhoa_000\\Desktop\\img icon\\new icon\\Multiply_26px.png")); // NOI18N
+        lbExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbExitMouseClicked(evt);
+            }
+        });
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\cuhoa_000\\Desktop\\img icon\\new icon\\Male User_30px.png")); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("User");
+
+        javax.swing.GroupLayout panelTitleLayout = new javax.swing.GroupLayout(panelTitle);
+        panelTitle.setLayout(panelTitleLayout);
+        panelTitleLayout.setHorizontalGroup(
+            panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitleLayout.createSequentialGroup()
+                .addGap(0, 810, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelContain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addGap(47, 47, 47)
+                .addComponent(lbExit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelContain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        panelTitleLayout.setVerticalGroup(
+            panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelTitleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
+
+        getContentPane().add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -216,6 +265,27 @@ public class CapitalGUI extends javax.swing.JFrame {
       resetLbColor(jLbAccount);
       resetLbColor(jLbHeo);
     }//GEN-LAST:event_jLbCaiDatMouseClicked
+
+    private void lbExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbExitMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_lbExitMouseClicked
+
+    int xx;
+    int yy;
+    private void panelTitleMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTitleMouseDragged
+        // TODO add your handling code here:
+        int x=evt.getXOnScreen();
+        int y=evt.getYOnScreen();
+        this.setLocation(x-xx,y-yy);
+    }//GEN-LAST:event_panelTitleMouseDragged
+
+    private void PanelMenuMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelMenuMouseDragged
+        // TODO add your handling code here:
+        int x=evt.getXOnScreen();
+        int y=evt.getYOnScreen();
+        this.setLocation(x-xx,y-yy);
+    }//GEN-LAST:event_PanelMenuMouseDragged
     private void setLbColor(JLabel jb)
     {
         jb.setBackground(new Color(0,204,153));
@@ -261,12 +331,16 @@ public class CapitalGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelMenu;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLbAccount;
     private javax.swing.JLabel jLbBaoCaoThongKe;
     private javax.swing.JLabel jLbCaiDat;
     private javax.swing.JLabel jLbHeo;
     private javax.swing.JLabel jLbKho;
+    private javax.swing.JLabel lbExit;
     private javax.swing.JPanel panelContain;
+    private javax.swing.JPanel panelTitle;
     private javax.swing.JPanel panelTrungChu;
     // End of variables declaration//GEN-END:variables
 }
