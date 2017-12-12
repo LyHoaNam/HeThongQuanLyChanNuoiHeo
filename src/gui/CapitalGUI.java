@@ -155,7 +155,7 @@ public class CapitalGUI extends javax.swing.JFrame {
         panelTrungChu.setLayout(panelTrungChuLayout);
         panelTrungChuLayout.setHorizontalGroup(
             panelTrungChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 919, Short.MAX_VALUE)
+            .addGap(0, 1053, Short.MAX_VALUE)
         );
         panelTrungChuLayout.setVerticalGroup(
             panelTrungChuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +175,7 @@ public class CapitalGUI extends javax.swing.JFrame {
 
         lbExit.setFont(new java.awt.Font("IrisUPC", 0, 11)); // NOI18N
         lbExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbExit.setIcon(new javax.swing.ImageIcon("C:\\Users\\cuhoa_000\\Desktop\\img icon\\new icon\\Multiply_26px.png")); // NOI18N
+        lbExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/Multiply_26px.png"))); // NOI18N
         lbExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbExitMouseClicked(evt);
@@ -183,7 +183,7 @@ public class CapitalGUI extends javax.swing.JFrame {
         });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\cuhoa_000\\Desktop\\img icon\\new icon\\Male User_30px.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/accountwhite-02.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,7 +195,7 @@ public class CapitalGUI extends javax.swing.JFrame {
         panelTitleLayout.setHorizontalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitleLayout.createSequentialGroup()
-                .addGap(0, 810, Short.MAX_VALUE)
+                .addGap(0, 944, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
@@ -213,7 +213,7 @@ public class CapitalGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
+        getContentPane().add(panelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -245,6 +245,7 @@ public class CapitalGUI extends javax.swing.JFrame {
       resetLbColor(jLbHeo);
       resetLbColor(jLbAccount);
       resetLbColor(jLbCaiDat);
+      ShowPanel(new BaoCaoThongKe());
     }//GEN-LAST:event_jLbBaoCaoThongKeMouseClicked
 
     private void jLbAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbAccountMouseClicked
