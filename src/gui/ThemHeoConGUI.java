@@ -210,7 +210,7 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        getContentPane().add(panelContain, java.awt.BorderLayout.CENTER);
+        getContentPane().add(panelContain, java.awt.BorderLayout.LINE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -241,7 +241,14 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
 
     private void btnXoaHeoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaHeoActionPerformed
         // TODO add your handling code here:
+        try
+        {
        ((DefaultTableModel)tableThemHeoCon.getModel()).removeRow(tableThemHeoCon.getSelectedRow());
+        }
+        catch(Exception exc)
+        {
+            System.out.println(exc);
+        }
     }//GEN-LAST:event_btnXoaHeoActionPerformed
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
@@ -254,7 +261,7 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
         
         
         String sDateNS=((JTextField)DateNS.getDateEditor().getUiComponent()).getText();
-        System.out.println(sDateNS);
+        //System.out.println(sDateNS);
         int iCountTrue=0;
         for(int i=0;i<n;i++)
         {

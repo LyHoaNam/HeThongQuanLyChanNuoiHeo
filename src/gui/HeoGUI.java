@@ -135,7 +135,7 @@ public class HeoGUI extends javax.swing.JPanel {
         lblEat = new javax.swing.JLabel();
         lbChuyenChuong = new javax.swing.JLabel();
         lbXuatChuong = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbThuoc = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(235, 233, 233));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -423,9 +423,14 @@ public class HeoGUI extends javax.swing.JPanel {
         lbXuatChuong.setText("Xuất chuồng");
         lbXuatChuong.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/Medical Bag_24px.png"))); // NOI18N
-        jLabel3.setText("Bệnh");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbThuoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/Medical Bag_24px.png"))); // NOI18N
+        lbThuoc.setText("Bệnh");
+        lbThuoc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbThuoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbThuocMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelMenuLoaiChuongLayout = new javax.swing.GroupLayout(panelMenuLoaiChuong);
         panelMenuLoaiChuong.setLayout(panelMenuLoaiChuongLayout);
@@ -453,7 +458,7 @@ public class HeoGUI extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(lbChuyenChuong, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lbXuatChuong, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(49, 49, 49))))))
@@ -484,7 +489,7 @@ public class HeoGUI extends javax.swing.JPanel {
                         .addComponent(lblEat))
                     .addGroup(panelMenuLoaiChuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lbXuatChuong, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)
+                        .addComponent(lbThuoc)
                         .addComponent(lbChuyenChuong, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(52, 52, 52))
         );
@@ -644,6 +649,13 @@ public class HeoGUI extends javax.swing.JPanel {
         String sTenLoaiChuong=lbChuongHeoNaiDeCon.getText();
         ChuyenChuongGUI.getObj(sTenLoaiChuong, sMaChuong,lstSelHeo).setVisible(true);       
     }//GEN-LAST:event_lbChuyenChuongMouseClicked
+
+    private void lbThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbThuocMouseClicked
+        // TODO add your handling code here:
+        String sMaHeo=(String) TableHeo.getModel().getValueAt(TableHeo.getSelectedRow(), 1);
+     
+        ThuocGUI.getObj(sMaHeo).setVisible(true);
+    }//GEN-LAST:event_lbThuocMouseClicked
        private void setLbColor(JLabel jlb) {
        
         jlb.setBackground(new Color(0,153,120));
@@ -664,7 +676,6 @@ public class HeoGUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLbSoLuongHeo;
@@ -692,6 +703,7 @@ public class HeoGUI extends javax.swing.JPanel {
     private javax.swing.JLabel lbChuongMangThai;
     private javax.swing.JLabel lbChuongPhoiGiong;
     private javax.swing.JLabel lbChuyenChuong;
+    private javax.swing.JLabel lbThuoc;
     private javax.swing.JLabel lbXuatChuong;
     private javax.swing.JLabel lblAddPig;
     private javax.swing.JLabel lblEat;

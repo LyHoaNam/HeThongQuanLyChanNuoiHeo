@@ -104,7 +104,7 @@ public class ChuyenChuongGUI extends javax.swing.JFrame {
         cbLoaiChuong = new javax.swing.JComboBox<>();
         lbLoaiChuongMoi = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Thông tin heo");
 

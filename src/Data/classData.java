@@ -74,6 +74,7 @@ public class classData {
         boolean res=true;
         try
         {
+            //System.out.println(sql);
             if(connectDB())
             {
                 stm=conn.createStatement();

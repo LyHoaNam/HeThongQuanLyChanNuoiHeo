@@ -26,6 +26,7 @@ public class ChoAnGUI extends javax.swing.JFrame {
     ArrayList <String> lsCongThucAn=new ArrayList();
     ArrayList <Integer> lstTonKho=new ArrayList();
     private boolean bCheckTA=true;
+    
     private static ChoAnGUI obj=null;
     public static ChoAnGUI getObj(String idMaChuong,String idLoaiChuong,String idMaNhanVien)
     {
@@ -169,7 +170,7 @@ public class ChoAnGUI extends javax.swing.JFrame {
         lbDanhSachThucAn = new javax.swing.JLabel();
         btnChinhSua = new javax.swing.JToggleButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cho Ăn");
 
         dateChoAn.setDateFormatString("yyyy-MM-dd\n");
@@ -459,12 +460,13 @@ public class ChoAnGUI extends javax.swing.JFrame {
         lstTonKho.clear();
         TableModel model1=    tableThucAnTrongKho.getModel();
         int [] indexs=tableThucAnTrongKho.getSelectedRows();
-        Object[] row=new Object[4];
+        
         DefaultTableModel model2=(DefaultTableModel) tableDanhSachThucAn.getModel();
         model2.getDataVector().removeAllElements();
         model2.fireTableDataChanged();
         for(int i=0;i<indexs.length;i++)
         {
+            Object[] row=new Object[4];
             row[0]=i+1;
             row[1]=model1.getValueAt(indexs[i], 1);
             row[2]=model1.getValueAt(indexs[i], 2);
