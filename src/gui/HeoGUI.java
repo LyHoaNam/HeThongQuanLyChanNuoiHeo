@@ -640,7 +640,7 @@ public class HeoGUI extends javax.swing.JPanel {
 
     private void lbChuyenChuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbChuyenChuongMouseClicked
         // TODO add your handling code here:
-         ArrayList<HeoELE> lstSelHeo=new ArrayList();
+         ArrayList<HeoELE> lstSelHeo= new ArrayList();
         int []index=tbHeo.getSelectedRows();
         for(int i=0;i<index.length;i++)
         {
@@ -653,9 +653,14 @@ public class HeoGUI extends javax.swing.JPanel {
 
     private void lbXuatChuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbXuatChuongMouseClicked
         // TODO add your handling code here:
-        XuatChuongGUI frXuatChuong = new XuatChuongGUI();
-        
-        frXuatChuong.setVisible(true);
+         ArrayList<HeoELE> lsHeoXuat = new ArrayList();
+        int []index=tbHeo.getSelectedRows();
+        for(int i=0;i<index.length;i++)
+        {
+            lsHeoXuat.add(lsHeo.get(index[i]));
+        }
+        XuatChuongGUI frXuatChuong = new XuatChuongGUI(lsHeoXuat);
+        XuatChuongGUI.getObj(lsHeoXuat).setVisible(true);
     }//GEN-LAST:event_lbXuatChuongMouseClicked
        private void setLbColor(JLabel jlb) {
        

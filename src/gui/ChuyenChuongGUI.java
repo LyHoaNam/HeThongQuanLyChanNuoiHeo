@@ -58,7 +58,7 @@ public class ChuyenChuongGUI extends javax.swing.JFrame {
             vector.add(lstHeo.get(i).getHeoMe());
             vector.add(lstHeo.get(i).getHeoCha());
             vector.add(lstHeo.get(i).getXuatXu());
-           model.addRow(vector);;
+            model.addRow(vector);;
         }
         
         showComboLoaiChuong();
