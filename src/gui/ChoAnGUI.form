@@ -321,7 +321,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtNhanVien">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField3"/>
+        <Property name="text" type="java.lang.String" value="NV01"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbCongThucAn">

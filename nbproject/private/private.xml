@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/qlh-2/src/gui/CapitalGUI.java</file>
+            <file>file:/F:/qlh-2/src/Business/NotificationBUS.java</file>
+            <file>file:/F:/qlh-2/src/gui/Notification.java</file>
+            <file>file:/F:/qlh-2/src/Business/ChoAnBUS.java</file>
             <file>file:/F:/qlh-2/src/gui/HeoGUI.java</file>
-            <file>file:/F:/qlh-2/src/Data/classData.java</file>
-            <file>file:/F:/qlh-2/src/Business/ThuocBUS.java</file>
-            <file>file:/F:/qlh-2/src/gui/ThuocGUI.java</file>
             <file>file:/F:/qlh-2/src/gui/ChoAnGUI.java</file>
         </group>
     </open-files>

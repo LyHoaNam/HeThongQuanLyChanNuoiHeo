@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import Element.ThucAnELE;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -233,7 +234,7 @@ public class ChoAnGUI extends javax.swing.JFrame {
 
         lbNhanVien.setText("Nhân Viên:");
 
-        txtNhanVien.setText("jTextField3");
+        txtNhanVien.setText("NV01");
 
         lbCongThucAn.setText("Công thức ăn:");
 
@@ -503,15 +504,15 @@ public class ChoAnGUI extends javax.swing.JFrame {
         ChoAnBUS objCA=new ChoAnBUS();
         int n=tableDanhSachThucAn.getRowCount();
         String sDate=((JTextField)dateChoAn.getDateEditor().getUiComponent()).getText();
-        
-       
+        Calendar calendar = Calendar.getInstance();
+       int iHourHT=calendar.get(Calendar.HOUR_OF_DAY);
         int iCheck=0;
         String iMaLoaiChuong=txtLoaiChuong.getText();
         String iMaChuong=txtMaChuong.getText();
-        String iMaNhanVien=txtNhanVien.getText();
+        String iMaNhanVien="NV01"; //
         try
         {
-        if(objCA.InsertPhieuXuatTA(sDate, iMaNhanVien, iMaChuong))
+        if(objCA.InsertPhieuXuatTA(sDate, iMaNhanVien, iMaChuong)&&(objCA.InsertGioChoAn(iMaChuong, iHourHT)))
             for(int i=0;i<n;i++)
             {
                 try
@@ -525,6 +526,7 @@ public class ChoAnGUI extends javax.swing.JFrame {
                         if(objCA.InsertChiTietPhieuXuatTA(sMaThucAn, sIdPhieuXuat, iSoLuong))
                             if(objCA.UpdateThucAn(iConLai, sMaThucAn))
                                 iCheck++;
+                    
                 }
                 catch(SQLException exc)
                 {

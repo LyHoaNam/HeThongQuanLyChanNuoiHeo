@@ -20,7 +20,10 @@ import javax.swing.table.DefaultTableModel;
 import Element.LoaiChuongELE;
 import Element.ChuongELE;
 import Element.HeoELE;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+
 /**
  *
  * @author cuhoa_000
@@ -123,6 +126,7 @@ public class HeoGUI extends javax.swing.JPanel {
         lbChuongHeoThit = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         panelThongBao = new javax.swing.JPanel();
+        lbThongBao = new javax.swing.JLabel();
         panelMenuLoaiChuong = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableHeo = new javax.swing.JTable();
@@ -327,15 +331,23 @@ public class HeoGUI extends javax.swing.JPanel {
 
         panelThongBao.setBackground(new java.awt.Color(255, 255, 255));
 
+        lbThongBao.setText("jLabel3");
+
         javax.swing.GroupLayout panelThongBaoLayout = new javax.swing.GroupLayout(panelThongBao);
         panelThongBao.setLayout(panelThongBaoLayout);
         panelThongBaoLayout.setHorizontalGroup(
             panelThongBaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGroup(panelThongBaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbThongBao)
+                .addContainerGap(686, Short.MAX_VALUE))
         );
         panelThongBaoLayout.setVerticalGroup(
             panelThongBaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGroup(panelThongBaoLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(lbThongBao)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         add(panelThongBao, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 610, 730, 60));
@@ -359,17 +371,17 @@ public class HeoGUI extends javax.swing.JPanel {
 
         tableChuong.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Mã Chuồng", "Số Lượng Heo"
+                "Mã Chuồng", "Số Lượng Heo", "Thông báo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -384,6 +396,9 @@ public class HeoGUI extends javax.swing.JPanel {
             }
         });
         jScrollPane3.setViewportView(tableChuong);
+        if (tableChuong.getColumnModel().getColumnCount() > 0) {
+            tableChuong.getColumnModel().getColumn(2).setCellRenderer(new Notification());
+        }
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -512,11 +527,12 @@ public class HeoGUI extends javax.swing.JPanel {
           {
               ChuongELE tempCH = new ChuongELE(rs.getString("MaChuong"),rs.getString("MaLoaiChuong"),rs.getInt("SoLuongHeoDangChua"));
               lsC.add(tempCH);
-                Vector vector=new Vector();
-                vector.add(tempCH.getMaChuong());
-          
-                vector.add(tempCH.getSoLuongHeoDangChua());
-                 model.addRow(vector);
+               // Vector vector=new Vector();
+               // vector.add(tempCH.getMaChuong());
+                //vector.add(tempCH.getSoLuongHeoDangChua());
+                 Object []oChuong = {tempCH.getMaChuong(),tempCH.getSoLuongHeoDangChua(),""};   
+                 model.addRow(oChuong);
+
           }
           }
           catch(SQLException exc)
@@ -529,7 +545,12 @@ public class HeoGUI extends javax.swing.JPanel {
         int row = tableChuong.getSelectedRow();
             
             String valueTableChuong = tableChuong.getModel().getValueAt(row, 0).toString();
-            
+            if(tableChuong.getModel().getValueAt(row, 2) != "")
+            {
+               lbThongBao.setText("ĐÃ ĐẾN GIỜ CHO ĂN");
+            }
+            else
+                lbThongBao.setText(null);
             HeoBUS hb=new HeoBUS();
             //chinh table
             DefaultTableModel model;
@@ -573,6 +594,7 @@ public class HeoGUI extends javax.swing.JPanel {
         resetLbColor(lbChuongPhoiGiong);
         resetLbColor(lbChuongDucGiong);
         resetLbColor(lbChuongMangThai);
+        
     }//GEN-LAST:event_panelMenuChuongHeoDeMouseClicked
 
 
@@ -703,6 +725,7 @@ public class HeoGUI extends javax.swing.JPanel {
     private javax.swing.JLabel lbChuongMangThai;
     private javax.swing.JLabel lbChuongPhoiGiong;
     private javax.swing.JLabel lbChuyenChuong;
+    private javax.swing.JLabel lbThongBao;
     private javax.swing.JLabel lbThuoc;
     private javax.swing.JLabel lbXuatChuong;
     private javax.swing.JLabel lblAddPig;
