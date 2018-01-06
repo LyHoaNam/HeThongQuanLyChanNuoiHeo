@@ -10,7 +10,7 @@ import Business.HoaDonBUS;
 import Business.KhachHangBUS;
 import Element.HeoELE;
 import Element.KhachHangELE;
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
+
 import java.awt.HeadlessException;
 import java.sql.Date;
 import java.sql.ResultSet;
