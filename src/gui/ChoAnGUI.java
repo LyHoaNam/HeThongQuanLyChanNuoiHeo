@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import Element.ThucAnELE;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -26,6 +27,7 @@ public class ChoAnGUI extends javax.swing.JFrame {
     ArrayList <String> lsCongThucAn=new ArrayList();
     ArrayList <Integer> lstTonKho=new ArrayList();
     private boolean bCheckTA=true;
+    
     private static ChoAnGUI obj=null;
     public static ChoAnGUI getObj(String idMaChuong,String idLoaiChuong,String idMaNhanVien)
     {
@@ -169,7 +171,7 @@ public class ChoAnGUI extends javax.swing.JFrame {
         lbDanhSachThucAn = new javax.swing.JLabel();
         btnChinhSua = new javax.swing.JToggleButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cho Ăn");
 
         dateChoAn.setDateFormatString("yyyy-MM-dd\n");
@@ -232,7 +234,7 @@ public class ChoAnGUI extends javax.swing.JFrame {
 
         lbNhanVien.setText("Nhân Viên:");
 
-        txtNhanVien.setText("jTextField3");
+        txtNhanVien.setText("NV01");
 
         lbCongThucAn.setText("Công thức ăn:");
 
@@ -459,12 +461,13 @@ public class ChoAnGUI extends javax.swing.JFrame {
         lstTonKho.clear();
         TableModel model1=    tableThucAnTrongKho.getModel();
         int [] indexs=tableThucAnTrongKho.getSelectedRows();
-        Object[] row=new Object[4];
+        
         DefaultTableModel model2=(DefaultTableModel) tableDanhSachThucAn.getModel();
         model2.getDataVector().removeAllElements();
         model2.fireTableDataChanged();
         for(int i=0;i<indexs.length;i++)
         {
+            Object[] row=new Object[4];
             row[0]=i+1;
             row[1]=model1.getValueAt(indexs[i], 1);
             row[2]=model1.getValueAt(indexs[i], 2);
@@ -501,15 +504,15 @@ public class ChoAnGUI extends javax.swing.JFrame {
         ChoAnBUS objCA=new ChoAnBUS();
         int n=tableDanhSachThucAn.getRowCount();
         String sDate=((JTextField)dateChoAn.getDateEditor().getUiComponent()).getText();
-        
-       
+        Calendar calendar = Calendar.getInstance();
+       int iHourHT=calendar.get(Calendar.HOUR_OF_DAY);
         int iCheck=0;
         String iMaLoaiChuong=txtLoaiChuong.getText();
         String iMaChuong=txtMaChuong.getText();
-        String iMaNhanVien=txtNhanVien.getText();
+        String iMaNhanVien="NV01"; //
         try
         {
-        if(objCA.InsertPhieuXuatTA(sDate, iMaNhanVien, iMaChuong))
+        if(objCA.InsertPhieuXuatTA(sDate, iMaNhanVien, iMaChuong)&&(objCA.InsertGioChoAn(iMaChuong, iHourHT)))
             for(int i=0;i<n;i++)
             {
                 try
@@ -523,6 +526,7 @@ public class ChoAnGUI extends javax.swing.JFrame {
                         if(objCA.InsertChiTietPhieuXuatTA(sMaThucAn, sIdPhieuXuat, iSoLuong))
                             if(objCA.UpdateThucAn(iConLai, sMaThucAn))
                                 iCheck++;
+                    
                 }
                 catch(SQLException exc)
                 {

@@ -68,4 +68,11 @@ public class ChoAnBUS
         }
         return sResult;
     }
+      public boolean InsertGioChoAn(String idChuong, int Gio) throws SQLException
+      {
+          String sql="INSERT INTO `giochoan`(`GioChoAn`, `MaChuong`) VALUES ("+Gio+",'"+idChuong+"')";
+          if(DB.updateData(sql))
+              return true;
+          return false;
+      }
 }

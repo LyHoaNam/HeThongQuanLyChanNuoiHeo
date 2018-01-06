@@ -3,15 +3,39 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/qlh-2/src/gui/CapitalGUI.java</file>
+<<<<<<< HEAD
             <file>file:/F:/qlh-2/src/gui/ChuyenChuongGUI.java</file>
-            <file>file:/F:/qlh-2/src/gui/BaoCaoThongKe.java</file>
-            <file>file:/F:/qlh-2/src/Business/ChuyenChuongBUS.java</file>
-            <file>file:/F:/qlh-2/src/Business/ChoAnBUS.java</file>
-            <file>file:/F:/qlh-2/src/gui/HeoGUI.java</file>
-            <file>file:/F:/qlh-2/src/Business/HeoBUS.java</file>
+            <file>file:/F:/qlh-2/src/Data/classData.java</file>
             <file>file:/F:/qlh-2/src/gui/ChoAnGUI.java</file>
-            <file>file:/F:/qlh-2/src/gui/ThemHeoConGUI.java</file>
+=======
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Element/ChuongELE.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/gui/NhanVienGUI.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Business/HeoBUS.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Business/ChuyenChuongBUS.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/gui/ThucAnGUI.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/gui/ChuyenChuongGUI.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Business/TaiKhoanBUS.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/gui/NhapHeoMoiGUI.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Element/HeoELE.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Business/KhachHangBUS.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Element/ThucAnELE.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Element/CanNangELE.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Data/classData.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Business/HoaDonBUS.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Element/LoaiChuongELE.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Business/CTHoaDonBUS.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Element/HoaDonELE.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/gui/ThemKhachHangGUI.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/gui/TaiKhoanGUI.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/gui/ThemHeoConGUI.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Element/CongThucAnELE.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Element/CTHoaDonELE.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/gui/XuatChuongGUI.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Business/CanNangBUS.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Business/ChoAnBUS.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/gui/HeoGUI.java</file>
+            <file>file:/D:/project%20-%20coding/GitHub/HeThongQuanLyChanNuoiHeo/src/Element/KhachHangELE.java</file>
+>>>>>>> heofrom-xuatchuong
         </group>
     </open-files>
 </project-private>

@@ -45,7 +45,7 @@ public class ChuyenChuongGUI extends javax.swing.JFrame {
         lbLoaiChuong.setText(sLoaiChuong);
         lbChuongHienTai.setText(sIdMaChuong);
         //add info in tableThongTinHeo
-        DefaultTableModel model=(DefaultTableModel)tableThongTinHeo.getModel();
+        DefaultTableModel model=(DefaultTableModel)tbThongTinHeo.getModel();
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged();
         for(int i=0;i<lstHeo.size();i++)
@@ -58,7 +58,7 @@ public class ChuyenChuongGUI extends javax.swing.JFrame {
             vector.add(lstHeo.get(i).getHeoMe());
             vector.add(lstHeo.get(i).getHeoCha());
             vector.add(lstHeo.get(i).getXuatXu());
-           model.addRow(vector);;
+            model.addRow(vector);;
         }
         
         showComboLoaiChuong();
@@ -93,7 +93,7 @@ public class ChuyenChuongGUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableThongTinHeo = new javax.swing.JTable();
+        tbThongTinHeo = new javax.swing.JTable();
         lbChuongHienTaiLa = new javax.swing.JLabel();
         lbLoaiChuong = new javax.swing.JLabel();
         dateC = new com.toedter.calendar.JDateChooser();
@@ -104,11 +104,11 @@ public class ChuyenChuongGUI extends javax.swing.JFrame {
         cbLoaiChuong = new javax.swing.JComboBox<>();
         lbLoaiChuongMoi = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Thông tin heo");
 
-        tableThongTinHeo.setModel(new javax.swing.table.DefaultTableModel(
+        tbThongTinHeo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -119,7 +119,7 @@ public class ChuyenChuongGUI extends javax.swing.JFrame {
                 "Stt", "Mã Heo", "Tình Trạng", "Giá Nhập", "Heo Mẹ", "Heo Cha", "Xuất Xứ"
             }
         ));
-        jScrollPane1.setViewportView(tableThongTinHeo);
+        jScrollPane1.setViewportView(tbThongTinHeo);
 
         lbChuongHienTaiLa.setText("Chuồng hiện tại:");
 
@@ -251,9 +251,9 @@ public class ChuyenChuongGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         ChuyenChuongBUS objCHeo=new ChuyenChuongBUS();
         int iCheck=0;
-        for(int i=0;i<tableThongTinHeo.getRowCount();i++)
+        for(int i=0;i<tbThongTinHeo.getRowCount();i++)
         {
-            String sMaHeo=(String) tableThongTinHeo.getValueAt(i, 1);
+            String sMaHeo=(String) tbThongTinHeo.getValueAt(i, 1);
             String MaChuong=(String) cbChuong.getSelectedItem();
             String sDate=((JTextField)dateC.getDateEditor().getUiComponent()).getText();
             try {
@@ -263,7 +263,7 @@ public class ChuyenChuongGUI extends javax.swing.JFrame {
                 Logger.getLogger(ChuyenChuongGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if(iCheck==tableThongTinHeo.getRowCount())
+        if(iCheck==tbThongTinHeo.getRowCount())
         {
              JOptionPane.showMessageDialog(null, "Chuyên chuồng thành công",
                   "THÔNG BÁO", JOptionPane.INFORMATION_MESSAGE);
@@ -322,6 +322,6 @@ public class ChuyenChuongGUI extends javax.swing.JFrame {
     private javax.swing.JLabel lbChuongMoi;
     private javax.swing.JLabel lbLoaiChuong;
     private javax.swing.JLabel lbLoaiChuongMoi;
-    private javax.swing.JTable tableThongTinHeo;
+    private javax.swing.JTable tbThongTinHeo;
     // End of variables declaration//GEN-END:variables
 }
