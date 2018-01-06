@@ -56,6 +56,7 @@ public class classData {
             {
 //                cstmDB = conn.prepareCall(str);   //query in format "{? = call myfunc}"
 //                res = cstmDB.executeQuery();  
+                System.out.println(str);
                 stm = conn.createStatement();
                 res = stm.executeQuery(str);
                 
@@ -77,6 +78,7 @@ public class classData {
             //System.out.println(sql);
             if(connectDB())
             {
+                System.out.println(sql);
                 stm=conn.createStatement();
                 stm.executeUpdate(sql);
                 

@@ -35,6 +35,10 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
         }
         return obj; 
     }
+
+    static Object getObj() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private ThemHeoConGUI(String sMaChuong) {
         initComponents();
         txtMaChuong.setText(sMaChuong);
