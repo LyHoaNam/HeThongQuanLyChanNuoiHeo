@@ -669,7 +669,8 @@ public class HeoGUI extends javax.swing.JPanel {
         }
         String sMaChuong=(String) tableChuong.getModel().getValueAt(tableChuong.getSelectedRow(), 0);
         String sTenLoaiChuong=lbChuongHeoNaiDeCon.getText();
-        ChuyenChuongGUI.getObj(sTenLoaiChuong, sMaChuong,lstSelHeo).setVisible(true);       
+        ChuyenChuongGUI fr=new ChuyenChuongGUI(sTenLoaiChuong, sMaChuong,lstSelHeo);
+        fr.setVisible(true);
     }//GEN-LAST:event_lbChuyenChuongMouseClicked
 
     private void lbThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbThuocMouseClicked

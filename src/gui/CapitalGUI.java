@@ -5,7 +5,11 @@
  */
 package gui;
 
+import Business.CapitalBUS;
+import Element.NhanVienELE;
 import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -18,10 +22,45 @@ public class CapitalGUI extends javax.swing.JFrame {
     /**
      * Creates new form CapitalGUI
      */
+    NhanVienELE objNV=null;
     public CapitalGUI() {
         
         initComponents();
         
+    }
+    private void PhanQuyen(String idTaiKhoan, String LoaiNhanVien)
+    {
+        CapitalBUS objCap=new CapitalBUS();
+        ResultSet rs=objCap.getNhanVien(idTaiKhoan);
+        
+        try
+        {
+            while(rs.next())
+            {
+                objNV=new NhanVienELE(rs.getString("HoTen"),
+                        rs.getString("MaNhanVien"),rs.getString("MaTaiKhoan"),
+                        rs.getString("NgayVaoLam"),rs.getString("SoDienThoai"));
+            }
+        }
+        catch(SQLException exc)
+        {
+            System.out.println("Loi o CapitalGUI PhanQUyen " +exc);
+        }
+        lbUser.setText(objNV.getTenNhanVien());
+        if(LoaiNhanVien.equals("k"))
+        {
+            jLbHeo.setVisible(false);
+        }
+        else
+            if(LoaiNhanVien.equals("h"))
+            {
+                jLbKho.setVisible(false);
+            }
+    }
+    public CapitalGUI(String idTaiKhoan, String sLoaiNhanVien)
+    {
+        initComponents();
+        PhanQuyen(idTaiKhoan,sLoaiNhanVien);
     }
     private JPanel panelChild;
     private void ShowPanel(JPanel pn)
@@ -47,7 +86,7 @@ public class CapitalGUI extends javax.swing.JFrame {
         panelTitle = new javax.swing.JPanel();
         lbExit = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -185,18 +224,18 @@ public class CapitalGUI extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/accountwhite-02.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("User");
+        lbUser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbUser.setForeground(new java.awt.Color(255, 255, 255));
+        lbUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbUser.setText("User");
 
         javax.swing.GroupLayout panelTitleLayout = new javax.swing.GroupLayout(panelTitle);
         panelTitle.setLayout(panelTitleLayout);
         panelTitleLayout.setHorizontalGroup(
             panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitleLayout.createSequentialGroup()
-                .addGap(0, 944, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 838, Short.MAX_VALUE)
+                .addComponent(lbUser, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(47, 47, 47)
@@ -208,7 +247,7 @@ public class CapitalGUI extends javax.swing.JFrame {
             .addGroup(panelTitleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -333,13 +372,13 @@ public class CapitalGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelMenu;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLbAccount;
     private javax.swing.JLabel jLbBaoCaoThongKe;
     private javax.swing.JLabel jLbCaiDat;
     private javax.swing.JLabel jLbHeo;
     private javax.swing.JLabel jLbKho;
     private javax.swing.JLabel lbExit;
+    private javax.swing.JLabel lbUser;
     private javax.swing.JPanel panelContain;
     private javax.swing.JPanel panelTitle;
     private javax.swing.JPanel panelTrungChu;
