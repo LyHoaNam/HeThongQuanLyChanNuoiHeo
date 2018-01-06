@@ -13,6 +13,15 @@ public class HeoELE {
     private String sXuatXu;
     private String sHeoMe;
     private String sHeoCha;
+
+    public String getsGioiTinh() {
+        return sGioiTinh;
+    }
+
+    public void setsGioiTinh(String sGioiTinh) {
+        this.sGioiTinh = sGioiTinh;
+    }
+    private String sGioiTinh;
     public HeoELE()
     {}
     public HeoELE(String idHeo, String TT,String gia, String Xx, String Me, String Cha)

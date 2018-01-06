@@ -3,6 +3,8 @@ package Business;
 import Data.classData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Calendar;
 /**
  *
@@ -69,10 +71,10 @@ public class HeoBUS
         String sResult="";
         try
         {
-        while(rs.next())
-        {
-            sResult=rs.getString("MaHeo");
-        }
+            while(rs.next())
+            {
+                sResult=rs.getString("MaHeo");
+            }
         }
         catch(SQLException exc)
         {
@@ -94,6 +96,7 @@ public class HeoBUS
             return true;
         return false;
     }
+
  
     
 }
