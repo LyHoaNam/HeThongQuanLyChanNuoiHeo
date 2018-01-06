@@ -8,6 +8,7 @@ package Business;
 import Data.classData;
 import Element.CanNangELE;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CanNangBUS {
     

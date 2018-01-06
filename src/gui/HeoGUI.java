@@ -659,8 +659,8 @@ public class HeoGUI extends javax.swing.JPanel {
         {
             lsHeoXuat.add(lsHeo.get(index[i]));
         }
-        XuatChuongGUI frXuatChuong = new XuatChuongGUI(lsHeoXuat);
-        XuatChuongGUI.getObj(lsHeoXuat).setVisible(true);
+        XuatChuongGUI fr = new XuatChuongGUI(lsHeoXuat);
+        fr.setVisible(true);
     }//GEN-LAST:event_lbXuatChuongMouseClicked
        private void setLbColor(JLabel jlb) {
        

@@ -5,24 +5,30 @@
  */
 package gui;
 
+import Business.CTHoaDonBUS;
+import Business.HoaDonBUS;
 import Business.KhachHangBUS;
 import Element.HeoELE;
 import Element.KhachHangELE;
-import java.awt.Color;
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
+import java.awt.HeadlessException;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
-
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.LinkedList;
+import java.util.List;
+import javax.swing.JTextField;
 /**
  *
  * @author namminhlp
@@ -109,6 +115,11 @@ public class XuatChuongGUI extends javax.swing.JFrame {
                 tbHeoXuatPropertyChange(evt);
             }
         });
+        tbHeoXuat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbHeoXuatKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbHeoXuat);
 
         lbXuatChuongGUI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -159,12 +170,19 @@ public class XuatChuongGUI extends javax.swing.JFrame {
             }
         });
 
-        lbTongTien.setText("TỔNG TIỀN");
+        dateNgayLap.setDateFormatString("yyyy-MM-dd");
+
+        lbTongTien.setText("TỔNG TIỀN (VND)");
 
         jButton1.setText("jButton1");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -174,8 +192,13 @@ public class XuatChuongGUI extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        lbSoLuong.setText("SỐ LƯỢNG");
+        lbSoLuong.setText("SỐ LƯỢNG (Con)");
 
         lbCapNhatCanNang.setBackground(new java.awt.Color(0, 153, 120));
         lbCapNhatCanNang.setText("Cập nhật Cân");
@@ -186,7 +209,7 @@ public class XuatChuongGUI extends javax.swing.JFrame {
             }
         });
 
-        lbTongKyXuat.setText("TỔNG KÝ XUẤT");
+        lbTongKyXuat.setText("TỔNG KÝ XUẤT (KG)");
 
         lbThemKhachHang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/plus (1).png"))); // NOI18N
         lbThemKhachHang.setOpaque(true);
@@ -227,10 +250,8 @@ public class XuatChuongGUI extends javax.swing.JFrame {
                                 .addComponent(txtDonGia, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(9, 9, 9))
                         .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lbCapNhatCanNang)
-                                .addComponent(jButton2))))
+                            .addGap(17, 17, 17)
+                            .addComponent(lbCapNhatCanNang)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,21 +275,21 @@ public class XuatChuongGUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(136, 136, 136))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(40, 40, 40)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lbTongTien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lbTongKyXuat, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbDataTongTien, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                    .addComponent(lbDataTongKyXuat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbDataSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(55, 55, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbTongKyXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbDataSoLuong)
-                    .addComponent(lbDataTongKyXuat)
-                    .addComponent(lbDataTongTien, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(170, 170, 170))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,8 +453,56 @@ public class XuatChuongGUI extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
+        tinhTongTien();
+        String dNgayLap;
+        dNgayLap = ((JTextField)dateNgayLap.getDateEditor().getUiComponent()).getText();
+        HoaDonBUS busHD = new HoaDonBUS();
+        CTHoaDonBUS busCTHD = new CTHoaDonBUS();
+        if ((cbMaKhachHang.getSelectedItem().equals("") == false) || 
+                    (txtNguoiLap.getText().equals("") == false))
+        {
+            List<String> listMaHeo = new LinkedList();
+            for (int i = 0; i < tbHeoXuat.getRowCount(); i++) 
+            {
+                 listMaHeo.add((String) tbHeoXuat.getModel().getValueAt(i,0));
+            }
+            try {
+                if ((busHD.insertHoaDon(txtNguoiLap.getText(), Integer.parseInt(lbDataSoLuong.getText()),
+                        cbMaKhachHang.getSelectedItem().toString(), dNgayLap) == true) &&
+                    (busCTHD.insertCTHD(busHD.getIDhasInserted(), listMaHeo, Double.parseDouble(txtDonGia.getText()))) == true    
+                    )
+                {
+                      JOptionPane.showMessageDialog(this, "Nhập hóa đơn thành công","Thông báo",JOptionPane.DEFAULT_OPTION);
+                      this.dispose();  
+                }
+                         
+            }
+            catch (HeadlessException | NumberFormatException | SQLException e) 
+            {
+                JOptionPane.showMessageDialog(this, "Không thể nhập hóa đơn","Cảnh báo",
+                JOptionPane.WARNING_MESSAGE);
+            }
+        } 
+              
+        // private javax.swing.JTextField txtDonGia;
+        // private javax.swing.JTextField txtNguoiLap;
+        // private javax.swing.JComboBox<String> cbMaKhachHang;
+        // private com.toedter.calendar.JDateChooser dateNgayLap;
         
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tbHeoXuatKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbHeoXuatKeyTyped
+        // TODO add your handling code here:
+        tinhTongTien();
+    }//GEN-LAST:event_tbHeoXuatKeyTyped
     private void bindingComboKhachHang() {
         
         KhachHangBUS bus = new KhachHangBUS();
@@ -523,9 +592,10 @@ public class XuatChuongGUI extends javax.swing.JFrame {
     @SuppressWarnings("empty-statement")
     public XuatChuongGUI(ArrayList<HeoELE> lsHeoXuat) {
         
-        
         initComponents();
         txtDonGia.setText("0");
+        Calendar cal = new GregorianCalendar();
+        dateNgayLap.setDate(cal.getTime());
         DonGia = Integer.parseInt(txtDonGia.getText());
         model = (DefaultTableModel) this.tbHeoXuat.getModel();
         model.addColumn("Mã heo");
@@ -543,14 +613,10 @@ public class XuatChuongGUI extends javax.swing.JFrame {
             vector.add(lsHeoXuat.get(i).getTinhTrang());
             vector.add(lsHeoXuat.get(i).getXuatXu());
             vector.add(lsHeoXuat.get(i).getsGioiTinh());
-            Random rand = new Random();
-            int  n = rand.nextInt(50) + 1;
-            vector.add(n);
+            vector.add(0);
             model.addRow(vector);
         }
         bindingComboKhachHang();
         tinhTongTien();
-        
-        
      }
 }
