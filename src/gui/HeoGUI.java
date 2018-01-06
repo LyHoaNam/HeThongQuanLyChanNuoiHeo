@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui;
 
 import java.awt.Color;
@@ -23,11 +19,8 @@ import Element.HeoELE;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-<<<<<<< HEAD
-
-=======
 import javax.swing.table.TableModel;
->>>>>>> heofrom-xuatchuong
+
 /**
  *
  * @author cuhoa_000
@@ -565,14 +558,10 @@ public class HeoGUI extends javax.swing.JPanel {
                 tbChuongMouseClicked(evt);
             }
         });
-<<<<<<< HEAD
-        jScrollPane3.setViewportView(tableChuong);
-        if (tableChuong.getColumnModel().getColumnCount() > 0) {
-            tableChuong.getColumnModel().getColumn(2).setCellRenderer(new Notification());
-        }
-=======
         jScrollPane3.setViewportView(tbChuong);
->>>>>>> heofrom-xuatchuong
+        if (tbChuong.getColumnModel().getColumnCount() > 0) {
+            tbChuong.getColumnModel().getColumn(2).setCellRenderer(null);
+        }
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -741,18 +730,15 @@ public class HeoGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
         int row = tbChuong.getSelectedRow();
             
-<<<<<<< HEAD
-            String valueTableChuong = tableChuong.getModel().getValueAt(row, 0).toString();
-            if(tableChuong.getModel().getValueAt(row, 2) != "")
+
+            String valueTableChuong = tbChuong.getModel().getValueAt(row, 0).toString();
+            if(tbChuong.getModel().getValueAt(row, 2) != "")
             {
                lbThongBao.setText("ĐÃ ĐẾN GIỜ CHO ĂN");
             }
             else
                 lbThongBao.setText(null);
-=======
-            String valueTableChuong = tbChuong.getModel().getValueAt(row, 0).toString();
-            
->>>>>>> heofrom-xuatchuong
+
             HeoBUS hb=new HeoBUS();
             //chinh table
             DefaultTableModel model;
@@ -875,14 +861,14 @@ public class HeoGUI extends javax.swing.JPanel {
         fr.setVisible(true);
     }//GEN-LAST:event_lbChuyenChuongMouseClicked
 
-<<<<<<< HEAD
+
     private void lbThuocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbThuocMouseClicked
         // TODO add your handling code here:
-        String sMaHeo=(String) TableHeo.getModel().getValueAt(TableHeo.getSelectedRow(), 1);
+        String sMaHeo=(String) tbHeo.getModel().getValueAt(tbHeo.getSelectedRow(), 1);
      
         ThuocGUI.getObj(sMaHeo).setVisible(true);
     }//GEN-LAST:event_lbThuocMouseClicked
-=======
+
     private void lbXuatChuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbXuatChuongMouseClicked
         // TODO add your handling code here:
          ArrayList<HeoELE> lsHeoXuat = new ArrayList();
@@ -894,7 +880,7 @@ public class HeoGUI extends javax.swing.JPanel {
         XuatChuongGUI fr = new XuatChuongGUI(lsHeoXuat);
         fr.setVisible(true);
     }//GEN-LAST:event_lbXuatChuongMouseClicked
->>>>>>> heofrom-xuatchuong
+
        private void setLbColor(JLabel jlb) {
        
         jlb.setBackground(new Color(0,153,120));

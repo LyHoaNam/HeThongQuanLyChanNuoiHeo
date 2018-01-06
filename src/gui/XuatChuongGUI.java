@@ -116,6 +116,9 @@ public class XuatChuongGUI extends javax.swing.JFrame {
             }
         });
         tbHeoXuat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tbHeoXuatKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 tbHeoXuatKeyTyped(evt);
             }
@@ -501,8 +504,13 @@ public class XuatChuongGUI extends javax.swing.JFrame {
 
     private void tbHeoXuatKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbHeoXuatKeyTyped
         // TODO add your handling code here:
-        tinhTongTien();
+        
     }//GEN-LAST:event_tbHeoXuatKeyTyped
+
+    private void tbHeoXuatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbHeoXuatKeyReleased
+        // TODO add your handling code here:
+        tinhTongTien();
+    }//GEN-LAST:event_tbHeoXuatKeyReleased
     private void bindingComboKhachHang() {
         
         KhachHangBUS bus = new KhachHangBUS();
