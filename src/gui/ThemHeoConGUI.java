@@ -39,11 +39,11 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
     static Object getObj() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    private ThemHeoConGUI(String sMaChuong) {
+    public ThemHeoConGUI(String sMaChuong) {
         initComponents();
         txtMaChuong.setText(sMaChuong);
     }
-     private ThemHeoConGUI() {
+     public ThemHeoConGUI() {
         initComponents();
        
     }

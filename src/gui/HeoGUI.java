@@ -35,6 +35,7 @@ public class HeoGUI extends javax.swing.JPanel {
     ArrayList<LoaiChuongELE> lsLC=new ArrayList();
     ArrayList<ChuongELE> lsC=new ArrayList();
     ArrayList<HeoELE> lsHeo=new ArrayList();
+    private String sMaLoaiChuong;
     private NhanVienELE objNV;
     public HeoGUI() {
         initComponents();
@@ -145,6 +146,8 @@ public class HeoGUI extends javax.swing.JPanel {
         lbChuyenChuong = new javax.swing.JLabel();
         lbXuatChuong = new javax.swing.JLabel();
         lbThuoc = new javax.swing.JLabel();
+        lbMaChuong = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -368,6 +371,10 @@ public class HeoGUI extends javax.swing.JPanel {
             }
         ));
         jScrollPane1.setViewportView(tbHeo);
+        if (tbHeo.getColumnModel().getColumnCount() > 0) {
+            tbHeo.getColumnModel().getColumn(0).setMinWidth(15);
+            tbHeo.getColumnModel().getColumn(0).setPreferredWidth(25);
+        }
 
         panelMenuLoaiChuong.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 86, 511, 520));
         panelMenuLoaiChuong.add(jTxt_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 33, 139, 27));
@@ -402,8 +409,11 @@ public class HeoGUI extends javax.swing.JPanel {
             }
         });
         jScrollPane3.setViewportView(tbChuong);
+        if (tbChuong.getColumnModel().getColumnCount() > 0) {
+            tbChuong.getColumnModel().getColumn(2).setCellRenderer(new Notification());
+        }
 
-        panelMenuLoaiChuong.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 86, 242, 520));
+        panelMenuLoaiChuong.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 86, 250, 520));
 
         jLabel1.setBackground(new java.awt.Color(0, 153, 102));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -463,6 +473,15 @@ public class HeoGUI extends javax.swing.JPanel {
         });
         panelMenuLoaiChuong.add(lbThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 628, 65, -1));
 
+        lbMaChuong.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbMaChuong.setText("MÃ CHUỒNG:");
+        panelMenuLoaiChuong.add(lbMaChuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 114, 63));
+        jLabel8.setText("MÃ CHUỒNG:");
+        panelMenuLoaiChuong.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
+
         add(panelMenuLoaiChuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 830, 680));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -497,15 +516,16 @@ public class HeoGUI extends javax.swing.JPanel {
     private void tbChuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbChuongMouseClicked
         // TODO add your handling code here:
         int row = tbChuong.getSelectedRow();
-            
-
+        lsHeo.clear();//reset danh sach
+        
             String valueTableChuong = tbChuong.getModel().getValueAt(row, 0).toString();
-            if(tbChuong.getModel().getValueAt(row, 2) != "")
-            {
-               lbThongBao.setText("ĐÃ ĐẾN GIỜ CHO ĂN");
-            }
-            else
-                lbThongBao.setText(null);
+            lbMaChuong.setText(valueTableChuong);
+//            if(tbChuong.getModel().getValueAt(row, 2) != "")
+//            {
+//               lbThongBao.setText("ĐÃ ĐẾN GIỜ CHO ĂN");
+//            }
+//            else
+//                lbThongBao.setText(null);
 
             HeoBUS hb=new HeoBUS();
             //chinh table
@@ -545,6 +565,7 @@ public class HeoGUI extends javax.swing.JPanel {
     private void panelMenuChuongHeoDeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMenuChuongHeoDeMouseClicked
         // TODO add your handling code here:
          showDanhSachChuong("LC01");
+         this.sMaLoaiChuong="LC01";
          setLbColor(lbChuongDeCon);
         resetLbColor(lbChuongHeoThit);
         resetLbColor(lbChuongPhoiGiong);
@@ -557,9 +578,9 @@ public class HeoGUI extends javax.swing.JPanel {
     private void lblAddPigMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddPigMouseClicked
         // TODO add your handling code here:
        String sMaChuong=(String) tbChuong.getModel().getValueAt(tbChuong.getSelectedRow(), 0);
-        ThemHeoConGUI.getObj(sMaChuong).setVisible(true);
-//        JFrame AddPigFr=new ThemHeoConGUI();
-//        AddPigFr.setVisible(true);
+        //ThemHeoConGUI.getObj(sMaChuong).setVisible(true);
+        ThemHeoConGUI AddPigFr=new ThemHeoConGUI(sMaChuong);
+        AddPigFr.setVisible(true);
         
         
     }//GEN-LAST:event_lblAddPigMouseClicked
@@ -567,7 +588,11 @@ public class HeoGUI extends javax.swing.JPanel {
     private void lblEatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEatMouseClicked
         // TODO add your handling code here:
         String sMaChuong=(String) tbChuong.getModel().getValueAt(tbChuong.getSelectedRow(), 0);
-        ChoAnGUI.getObj(sMaChuong,"LC01",this.objNV).setVisible(true);
+        //ChoAnGUI.getObj(sMaChuong,"LC01",this.objNV).setVisible(true);
+        ChoAnGUI fr=new ChoAnGUI(sMaChuong,this.sMaLoaiChuong,this.objNV);
+        fr.setVisible(true);
+        showDanhSachChuong(this.sMaLoaiChuong);
+        
     }//GEN-LAST:event_lblEatMouseClicked
 
     private void JtxtSoLuongChuong3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtxtSoLuongChuong3ActionPerformed
@@ -577,6 +602,7 @@ public class HeoGUI extends javax.swing.JPanel {
     private void panelChuongMangThaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelChuongMangThaiMouseClicked
         // TODO add your handling code here:
         showDanhSachChuong("LC02");
+        this.sMaLoaiChuong="LC02";
         setLbColor(lbChuongMangThai);
         resetLbColor(lbChuongHeoThit);
         resetLbColor(lbChuongPhoiGiong);
@@ -588,6 +614,7 @@ public class HeoGUI extends javax.swing.JPanel {
     private void panelHeoGiongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelHeoGiongMouseClicked
         // TODO add your handling code here:
         showDanhSachChuong("LC04");
+        this.sMaLoaiChuong="LC04";
         setLbColor(lbChuongDucGiong);
         resetLbColor(lbChuongHeoThit);
         resetLbColor(lbChuongPhoiGiong);
@@ -598,6 +625,7 @@ public class HeoGUI extends javax.swing.JPanel {
     private void panelChoPhoiGiongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelChoPhoiGiongMouseClicked
         // TODO add your handling code here:
         showDanhSachChuong("LC03");
+        this.sMaLoaiChuong="LC03";
         setLbColor(lbChuongPhoiGiong);
         resetLbColor(lbChuongHeoThit);
         resetLbColor(lbChuongDucGiong);
@@ -608,6 +636,7 @@ public class HeoGUI extends javax.swing.JPanel {
     private void panelChuongHeoThitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelChuongHeoThitMouseClicked
         // TODO add your handling code here:
         showDanhSachChuong("LC05");
+        this.sMaLoaiChuong="LC05";
         setLbColor(lbChuongHeoThit);
         resetLbColor(lbChuongDucGiong);
         resetLbColor(lbChuongPhoiGiong);
@@ -622,6 +651,7 @@ public class HeoGUI extends javax.swing.JPanel {
         for(int i=0;i<index.length;i++)
         {
             lstSelHeo.add(lsHeo.get(index[i]));
+         
         }
         String sMaChuong=(String) tbChuong.getModel().getValueAt(tbChuong.getSelectedRow(), 0);
         String sTenLoaiChuong=lbChuongHeoNaiDeCon.getText();
@@ -634,7 +664,9 @@ public class HeoGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
         String sMaHeo=(String) tbHeo.getModel().getValueAt(tbHeo.getSelectedRow(), 1);
      
-        ThuocGUI.getObj(sMaHeo).setVisible(true);
+        //ThuocGUI.getObj(sMaHeo).setVisible(true);
+        ThuocGUI fr=new ThuocGUI(sMaHeo);
+        fr.setVisible(true);
     }//GEN-LAST:event_lbThuocMouseClicked
 
     private void lbXuatChuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbXuatChuongMouseClicked
@@ -670,6 +702,7 @@ public class HeoGUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLbSoLuongHeo;
     private javax.swing.JLabel jLbSoLuongHeo1;
     private javax.swing.JLabel jLbSoLuongHeo2;
@@ -695,6 +728,7 @@ public class HeoGUI extends javax.swing.JPanel {
     private javax.swing.JLabel lbChuongMangThai;
     private javax.swing.JLabel lbChuongPhoiGiong;
     private javax.swing.JLabel lbChuyenChuong;
+    private javax.swing.JLabel lbMaChuong;
     private javax.swing.JLabel lbThongBao;
     private javax.swing.JLabel lbThuoc;
     private javax.swing.JLabel lbXuatChuong;

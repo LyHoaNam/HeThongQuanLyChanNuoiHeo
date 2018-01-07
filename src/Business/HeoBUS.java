@@ -53,7 +53,12 @@ public class HeoBUS
     }
     public ResultSet getTableHeo(String id)
     {
-        String sql="SELECT DISTINCT * FROM `heo` WHERE MaHeo IN (SELECT C.MaHeo FROM ctchuong C JOIN chuong CH on CH.MaChuong= C.MaChuong WHERE C.MaChuong ='"+ id+"')";
+        String sql="SELECT * FROM heo WHERE MaHeo IN (SELECT p1.MaHeo "
+                + "FROM ctchuong p1 "
+                + "INNER JOIN ( SELECT max(NgayNhapChuong) MaxPostDate, MaHeo "
+                + "FROM ctchuong GROUP BY MaHeo ) p2 "
+                + "ON p1.MaHeo =p2.MaHeo AND p1.NgayNhapChuong=p2.MaxPostDate "
+                + "WHERE p1.MaChuong='"+id+"' ORDER BY p1.NgayNhapChuong DESC)";
         return DB.getData(sql);
     }
     public boolean ThemHeoCon( String idHeoMe, String idHeoCha, String NgaySinh, String gt ) throws SQLException

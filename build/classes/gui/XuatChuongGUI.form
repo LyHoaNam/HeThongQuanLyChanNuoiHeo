@@ -154,10 +154,8 @@
                                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtDonGia" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtSDT" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtSDT" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="296" max="-2" attributes="0"/>
@@ -167,12 +165,14 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="lbCapNhatCanNang" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lbSoLuong" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="lbDataSoLuong" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="lbXacNhan" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="lbHuy" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbSoLuong" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="lbDataSoLuong" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>

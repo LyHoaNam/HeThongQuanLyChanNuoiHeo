@@ -550,8 +550,11 @@ public class ChoAnGUI extends javax.swing.JFrame {
 
         }
            if(iCheck==n)
+           {
                  JOptionPane.showMessageDialog(null, "Cho ăn thành công",
                   "THÔNG BÁO", JOptionPane.INFORMATION_MESSAGE);
+                 this.dispose();
+           }
             else
              JOptionPane.showMessageDialog(null, "Có lỗi trong quá trình cho ăn",
                   "THÔNG BÁO", JOptionPane.WARNING_MESSAGE);
