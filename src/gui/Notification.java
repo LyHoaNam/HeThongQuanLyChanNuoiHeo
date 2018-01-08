@@ -38,7 +38,7 @@ public class Notification extends DefaultTableCellRenderer
        NotificationBUS objNo=new NotificationBUS();
        Calendar calendar = Calendar.getInstance();
        String sMaChuong=(String) table.getValueAt(row, 0);
-        System.out.println(sMaChuong);
+       
        int iHour = objNo.getGioChoAn(sMaChuong);
        int iHourHT=calendar.get(Calendar.HOUR_OF_DAY);
        // Sau 7h thong bao cho an

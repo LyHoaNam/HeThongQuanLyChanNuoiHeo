@@ -36,6 +36,7 @@ public class HeoGUI extends javax.swing.JPanel {
     ArrayList<ChuongELE> lsC=new ArrayList();
     ArrayList<HeoELE> lsHeo=new ArrayList();
     private String sMaLoaiChuong;
+    private String sMaChuong;
     private NhanVienELE objNV;
     public HeoGUI() {
         initComponents();
@@ -519,6 +520,7 @@ public class HeoGUI extends javax.swing.JPanel {
         lsHeo.clear();//reset danh sach
         
             String valueTableChuong = tbChuong.getModel().getValueAt(row, 0).toString();
+            this.sMaChuong=valueTableChuong;
             lbMaChuong.setText(valueTableChuong);
 //            if(tbChuong.getModel().getValueAt(row, 2) != "")
 //            {
@@ -677,7 +679,7 @@ public class HeoGUI extends javax.swing.JPanel {
         {
             lsHeoXuat.add(lsHeo.get(index[i]));
         }
-        XuatChuongGUI fr = new XuatChuongGUI(lsHeoXuat,objNV);
+        XuatChuongGUI fr = new XuatChuongGUI(lsHeoXuat,objNV,sMaChuong);
         fr.setVisible(true);
     }//GEN-LAST:event_lbXuatChuongMouseClicked
 

@@ -58,7 +58,8 @@ public class HeoBUS
                 + "INNER JOIN ( SELECT max(NgayNhapChuong) MaxPostDate, MaHeo "
                 + "FROM ctchuong GROUP BY MaHeo ) p2 "
                 + "ON p1.MaHeo =p2.MaHeo AND p1.NgayNhapChuong=p2.MaxPostDate "
-                + "WHERE p1.MaChuong='"+id+"' ORDER BY p1.NgayNhapChuong DESC)";
+                + "WHERE p1.NgayXuatChuong is null AND "
+                + "p1.MaChuong='"+id+"' ORDER BY p1.NgayNhapChuong DESC)";
         return DB.getData(sql);
     }
     public boolean ThemHeoCon( String idHeoMe, String idHeoCha, String NgaySinh, String gt ) throws SQLException
@@ -101,7 +102,11 @@ public class HeoBUS
             return true;
         return false;
     }
-
+    public void UpdateChuong() throws SQLException
+    {
+        String sql="UPDATE `chuong` SET `SoLuongHeoDangChua`=0 WHERE 1";
+        DB.updateData(sql);
+    }
  
     
 }

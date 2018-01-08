@@ -239,6 +239,7 @@ public class ThemHeoConGUI extends javax.swing.JFrame {
                     iCountTrue++;
                
             }
+            objHeo.UpdateChuong();
             }
         catch (SQLException ex) 
             {

@@ -37,6 +37,7 @@ import javax.swing.JTextField;
 public class XuatChuongGUI extends javax.swing.JFrame {
 
     private int DonGia;
+    private String sIdChuong;
     private static XuatChuongGUI obj=null;
     DefaultTableModel model;
      NhanVienELE objNV;
@@ -47,11 +48,11 @@ public class XuatChuongGUI extends javax.swing.JFrame {
         initComponents();
         
     }
-    public static XuatChuongGUI getObj(ArrayList<HeoELE> lsHeoXuat,NhanVienELE nv)
+    public static XuatChuongGUI getObj(ArrayList<HeoELE> lsHeoXuat,NhanVienELE nv,String idChuong)
     {
         if(obj==null)
         {
-            obj=new XuatChuongGUI(lsHeoXuat,nv);
+            obj=new XuatChuongGUI(lsHeoXuat,nv,idChuong);
         }
         return obj;
     }
@@ -508,13 +509,13 @@ public class XuatChuongGUI extends javax.swing.JFrame {
             try {
                 if ((busHD.insertHoaDon(objNV.getMaNhanVien(), Integer.parseInt(lbDataSoLuong.getText()),
                         cbMaKhachHang.getSelectedItem().toString(), dNgayLap) == true) &&
-                    (busCTHD.insertCTHD(busHD.getIDhasInserted(), listMaHeo, Double.parseDouble(txtDonGia.getText()))) == true    
+                    (busCTHD.insertCTHD(busHD.getIDhasInserted(), listMaHeo, Double.parseDouble(txtDonGia.getText()),this.sIdChuong)) == true    
                     )
                 {
                       JOptionPane.showMessageDialog(this, "Nhập hóa đơn thành công","Thông báo",JOptionPane.DEFAULT_OPTION);
                       this.dispose();  
                 }
-                         
+               
             }
             catch (HeadlessException | NumberFormatException | SQLException e) 
             {
@@ -616,10 +617,11 @@ public class XuatChuongGUI extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("empty-statement")
-    public XuatChuongGUI(ArrayList<HeoELE> lsHeoXuat,NhanVienELE objNV) {
+    public XuatChuongGUI(ArrayList<HeoELE> lsHeoXuat,NhanVienELE objNV, String idMaChuong) {
         
         initComponents();
         this.objNV=objNV;
+        this.sIdChuong=idMaChuong;
         txtNguoiLap.setText(objNV.getTenNhanVien());
         txtDonGia.setText("0");
         Calendar cal = new GregorianCalendar();

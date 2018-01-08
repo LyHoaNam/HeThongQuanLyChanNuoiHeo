@@ -34,5 +34,10 @@ public class HoaDonBUS {
          }
          return ID;
      }
+     public void UpdateCtChuong(String idChuong,String idHeo) throws SQLException
+     {
+         String sql="UPDATE `ctchuong` SET `NgayXuatChuong`=now() where MaChuong ='"+idChuong+"' AND MaHeo='"+idHeo+"'";
+         DB.updateData(sql);
+     }
      
 }
