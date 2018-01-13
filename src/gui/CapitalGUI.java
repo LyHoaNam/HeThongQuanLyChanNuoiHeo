@@ -89,6 +89,7 @@ public class CapitalGUI extends javax.swing.JFrame {
         jLbHeo = new javax.swing.JLabel();
         jLbAccount = new javax.swing.JLabel();
         jLbBaoCaoThongKe = new javax.swing.JLabel();
+        lbLogo = new javax.swing.JLabel();
         panelContain = new javax.swing.JPanel();
         panelTrungChu = new javax.swing.JPanel();
         panelTitle = new javax.swing.JPanel();
@@ -168,6 +169,11 @@ public class CapitalGUI extends javax.swing.JFrame {
             }
         });
 
+        lbLogo.setBackground(new java.awt.Color(204, 102, 51));
+        lbLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/logo-02.png"))); // NOI18N
+        lbLogo.setOpaque(true);
+
         javax.swing.GroupLayout PanelMenuLayout = new javax.swing.GroupLayout(PanelMenu);
         PanelMenu.setLayout(PanelMenuLayout);
         PanelMenuLayout.setHorizontalGroup(
@@ -177,11 +183,13 @@ public class CapitalGUI extends javax.swing.JFrame {
             .addComponent(jLbCaiDat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLbKho, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLbBaoCaoThongKe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lbLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PanelMenuLayout.setVerticalGroup(
             PanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelMenuLayout.createSequentialGroup()
-                .addGap(149, 149, 149)
+                .addComponent(lbLogo)
+                .addGap(112, 112, 112)
                 .addComponent(jLbHeo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLbKho, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -315,6 +323,7 @@ public class CapitalGUI extends javax.swing.JFrame {
       resetLbColor(jLbBaoCaoThongKe);
       resetLbColor(jLbAccount);
       resetLbColor(jLbHeo);
+      ShowPanel(new CaiDatGUI(this.sLoaiNhanVien));
     }//GEN-LAST:event_jLbCaiDatMouseClicked
 
     int xx;
@@ -389,6 +398,7 @@ public class CapitalGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLbHeo;
     private javax.swing.JLabel jLbKho;
     private javax.swing.JLabel lbExit;
+    private javax.swing.JLabel lbLogo;
     private javax.swing.JLabel lbUser;
     private javax.swing.JPanel panelContain;
     private javax.swing.JPanel panelTitle;

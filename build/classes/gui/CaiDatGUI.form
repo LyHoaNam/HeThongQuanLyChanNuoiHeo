@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+    <Property name="useNullLayout" type="boolean" value="false"/>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lbLogo">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Item/Untitled-1-03.png"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="40" y="31" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="350" y="31" width="838" height="300"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="txtGioiThieu">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="   &#x110;&#x1eb7;t v&#x1ea5;n &#x111;&#x1ec1; &#xa;Hi&#x1ec7;n nay, v&#x1edb;i nhu c&#x1ea7;u s&#x1eed; d&#x1ee5;ng th&#x1ecb;t &#x111;&#x1eb7;t bi&#x1ec7;t l&#xe0; th&#x1ecb;t heo &#x1edf; n&#x1b0;&#x1edb;c ta ch&#x1b0;a h&#x1ec1; gi&#x1ea3;m v&#xe0; v&#x1eab;n &#x111;ang tang cao. &#xa;Tuy nhi&#xea;n, th&#x1ecb; tr&#x1b0;&#x1edd;ng th&#x1ecb;t &#x1edf; trong n&#x1b0;&#x1edb;c ch&#x1b0;a &#x111;&#x1ea3;m b&#x1ea3;o ch&#x1ea5;t l&#x1b0;&#x1ee3;ng. Nh&#x1ead;n th&#x1ea5;y &#x111;i&#x1ec1;u &#x111;&#xf3;, vi&#x1ec7;c t&#x1ea1;o ra h&#x1ec7; th&#x1ed1;ng&#xa;nu&#xf4;i heo cho c&#xe1;c n&#xf4;ng tr&#x1ea1;i &#x111;&#x1ec3; ph&#xe1;t tri&#x1ec3;n n&#xf4;ng tr&#x1ea1;i, qu&#x1ea3;n l&#xfd; c&#x169;ng nh&#x1b0;  gi&#x1ea3;m thi&#x1ec7;u c&#xe1;c chi ti&#xea;u v&#x1ec1; l&#xe2;u d&#xe0;i&#xa;cho n&#xf4;ng tr&#x1ea1;i.&#xa;C&#xe1;c trang tr&#x1ea1;i hi&#x1ec7;n nay ch&#x1ee7; y&#x1ebf;u l&#xe0; qu&#x1ea3;n l&#xfd; m&#x1ed9;t c&#xe1;ch th&#x1ee7; c&#xf4;ng, ph&#x1ea7;n l&#x1edb;n l&#xe0; theo d&#xf5;i th&#x1ee7; c&#xf4;ng v&#xe0; ghi l&#x1ea1;i &#xa;b&#x1eb1;ng gi&#x1ea5;y n&#xea;n t&#x1ed1;n r&#x1ea5;t nhi&#x1ec1;u th&#x1edd;i gian v&#xe0; kh&#xf3; kh&#x103;n trong vi&#x1ec7;c gi&#xe1;m gi&#xe1;t.&#xa;&#x110;&#x1ec3; gi&#x1ea3;i quy&#x1ebf;t v&#x1ea5;n &#x111;&#x1ec1; tr&#xea;n, c&#x1ea7;n m&#x1ed9;t gi&#x1ea3;i ph&#xe1;p mang t&#xed;nh th&#x1ef1;c ti&#x1ec5;n, c&#x1ea7;n x&#xe2;y d&#x1ef1;ng n&#xea;n m&#x1ed9;t h&#x1ec7; th&#x1ed1;ng ph&#x1ee5;c v&#x1ee5; &#xa;c&#xf4;ng t&#xe1;c qu&#x1ea3;n l&#xfd; heo. &#x110;&#x1ec3; c&#xf3; th&#x1ec3; theo s&#xe1;t, qu&#x1ea3;n l&#xfd; chu&#x1ed3;ng tr&#x1ea1;i c&#x169;ng nh&#x1b0; gi&#xe1;m s&#xe1;t nh&#xe2;n vi&#xea;n.&#xa;   Gi&#x1ea3;i ph&#xe1;p&#xa;M&#x1ed7;i con heo s&#x1ebd; c&#xf3; th&#xf4;ng tin nh&#x1b0;: m&#xe3; s&#x1ed1;, m&#xe3; s&#x1ed1; c&#x1ee7;a cha m&#x1eb9;, ng&#xe0;y sinh, t&#xec;nh tr&#x1ea1;ng, c&#xe2;n n&#x1eb7;ng. Khi l&#x1ee3;n con &#xa;m&#x1edb;i sinh s&#x1ebd; &#x111;&#x1b0;&#x1ee3;c c&#x1ea5;p th&#xf4;ng tin. L&#x1ee3;n con &#x111;&#x1ee7; &#x111;&#x1ee7; &#x111;i&#x1ec1;u ki&#x1ec7;n v&#x1ec1; c&#xe2;n n&#x1eb7;ng, ng&#xe0;y tu&#x1ed5;i th&#xec; s&#x1ebd; &#x111;&#x1b0;&#x1ee3;c t&#xe1;ch &#x111;&#xe0;n &#xa;chuy&#x1ec3;n &#x111;&#x1ebf;n nh&#x1eef;ng chu&#x1ed3;ng nu&#xf4;i ch&#x1ed1;ng. &#x110;&#x1ed1;i v&#x1edb;i heo con &#x111;&#x1b0;&#x1ee3;c nh&#x1ead;p t&#x1eeb; c&#x1a1; s&#x1edf; kh&#xe1;c th&#xec; s&#x1ebd; &#x111;&#x1b0;&#x1ee3;c chuy&#x1ec3;n &#x111;&#x1ebf;n &#xa;nh&#x1eef;ng chu&#x1ed3;ng ch&#x1ed1;ng v&#xe0; &#x111;&#x1b0;&#x1ee3;c c&#x1ea5;p m&#xe3; v&#xe0; th&#xf4;ng tin.&#xa;M&#x1ed7;i chu&#x1ed3;ng nu&#xf4;i s&#x1ebd; c&#xf3;: m&#xe3; chu&#x1ed3;ng nu&#xf4;i, s&#x1ed1; l&#x1b0;&#x1ee3;ng v&#x1ead;t nu&#xf4;i, s&#x1ed1; l&#x1b0;&#x1ee3;ng v&#x1ead;t nu&#xf4;i t&#x1ed1;i &#x111;a, v&#x1ecb; tr&#xed; chu&#x1ed3;ng nu&#xf4;i,&#xa;tr&#xec;nh tr&#x1ea1;ng chu&#x1ed3;ng nu&#xf4;i. Chu&#x1ed3;ng nu&#xf4;i s&#x1ebd; nu&#xf4;i nh&#x1eef;ng con heo c&#xf9;ng &#x111;&#xe0;n (c&#xf9;ng cha me, c&#xf9;ng tu&#x1ed5;i). M&#x1ed7;i ng&#xe0;y&#xa; nh&#xe2;n vi&#xea;n s&#x1ebd; cho heo &#x103;n theo t&#x1eeb;ng khu theo c&#xf4;ng th&#x1ee9;c &#x111;&#xe3; &#x111;&#x1ecb;nh s&#x1eb5;n ph&#xf9; h&#x1ee3;p v&#x1ed1;i l&#x1ee9;a tu&#x1ed5;i. Trong th&#x1edd;i &#xa;gian ch&#x103;m s&#xf3;c n&#x1ebf;u c&#xf3; nhu c&#x1ea7;u chuy&#x1ec3;n tru&#x1ed3;ng cho heo th&#xec; ch&#x1ec9; &#x111;&#x1b0;&#x1ee3;c chuy&#x1ec3;n heo t&#x1edb;i chu&#x1ed3;ng ch&#x1ed1;ng. Khi heo &#xa;b&#x1ecb; b&#x1ec7;nh nh&#xe2;n vi&#xea;n chu&#x1ed3;ng s&#x1ebd; ti&#xea;m thu&#x1ed1;c cho heo. M&#x1ed7;i khi ti&#xea;m thu&#x1ed1;c nh&#xe2;n vi&#xea;n c&#x1ea7;n in ho&#xe1; &#x111;&#x1a1;n ti&#xea;m thu&#x1ed1;c&#xa; bao g&#x1ed3;m c&#xe1;c th&#xf4;ng tin: m&#xe3; thu&#x1ed1;c, t&#xea;n lo&#x1ea1;i thu&#x1ed1;c, s&#x1ed1; l&#x1b0;&#x1ee3;ng, ng&#xe0;y t&#x1ed3;n d&#x1b0; thu&#x1ed1;c, gi&#xe1;.&#xa;M&#x1ed7;i l&#x1ee9;a tu&#x1ed5;i heo th&#xec; s&#x1ebd; c&#xf3; c&#xf4;ng th&#x1ee9;c cho &#x103;n kh&#xe1;c nhau. M&#x1ed7;i c&#xf4;ng th&#x1ee9;c cho &#x103;n s&#x1ebd; c&#xf3; th&#xf4;ng tin: tu&#x1ed5;i nh&#x1ecf; nh&#x1ea5;t, tu&#x1ed5;i l&#x1edb;n nh&#x1ea5;t, m&#xe3; lo&#x1ea1;i th&#x1ee9;c &#x103;n, s&#x1ed1; l&#x1b0;&#x1ee3;ng(kg).&#xa;"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="lbThayDoiGCA">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="0" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="THAY &#x110;&#x1ed4;I GI&#x1edc; CHO &#x102;N"/>
+        <Property name="opaque" type="boolean" value="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbThayDoiGCAMouseClicked"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="90" y="360" width="177" height="22"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Container class="javax.swing.JPanel" name="panelGioChoAn">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="350" y="349" width="838" height="40"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="false"/>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lbGioChoAnHienTai">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="99" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Gi&#x1edd; cho &#x103;n hi&#x1ec7;n t&#x1ea1;i:"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="300" y="10" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbGio">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="99" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Gio"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="410" y="10" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbGioChoAnHienTai1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="99" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Gi&#x1edd; cho &#x103;n m&#x1edb;i:"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="440" y="10" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtGioMoi">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGioMoiActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="530" y="10" width="80" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbThayDoi">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="99" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="THAY &#x110;&#x1ed4;I"/>
+            <Property name="opaque" type="boolean" value="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbThayDoiMouseClicked"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="640" y="10" width="177" height="22"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbLoaiChuong1">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="5">
+                <StringItem index="0" value="Chu&#x1ed3;ng heo n&#xe1;i mang thai"/>
+                <StringItem index="1" value="Chu&#x1ed3;ng heo n&#xe1;i &#x111;&#x1ebb; con"/>
+                <StringItem index="2" value="Chu&#x1ed3;ng heo &#x111;&#x1ef1;c gi&#x1ed1;ng"/>
+                <StringItem index="3" value="Chu&#x1ed3;ng heo ch&#x1edd; ph&#x1ed1;i gi&#x1ed1;ng"/>
+                <StringItem index="4" value="Chu&#x1ed3;ng heo th&#x1ecb;t"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cbLoaiChuong1MouseClicked"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="90" y="10" width="180" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbGioChoAnHienTai3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="99" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i chu&#x1ed3;ng:"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="10" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="panelThemChuong">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="350" y="393" width="838" height="40"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lbGioChoAnHienTai2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="cbLoaiChuong2" min="-2" pref="179" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="lbThemChuong" min="-2" pref="177" max="-2" attributes="0"/>
+                  <EmptySpace pref="349" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbGioChoAnHienTai2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbThemChuong" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="cbLoaiChuong2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lbGioChoAnHienTai2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="99" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i chu&#x1ed3;ng:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbThemChuong">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="99" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="TH&#xca;M CHU&#x1ed2;NG"/>
+            <Property name="opaque" type="boolean" value="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbThemChuongMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbLoaiChuong2">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="5">
+                <StringItem index="0" value="Chu&#x1ed3;ng heo n&#xe1;i mang thai"/>
+                <StringItem index="1" value="Chu&#x1ed3;ng heo n&#xe1;i &#x111;&#x1ebb; con"/>
+                <StringItem index="2" value="Chu&#x1ed3;ng heo &#x111;&#x1ef1;c gi&#x1ed1;ng"/>
+                <StringItem index="3" value="Chu&#x1ed3;ng heo ch&#x1edd; ph&#x1ed1;i gi&#x1ed1;ng"/>
+                <StringItem index="4" value="Chu&#x1ed3;ng heo th&#x1ecb;t"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="lbThemChuongPn">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="0" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="TH&#xca;M CHU&#x1ed2;NG"/>
+        <Property name="opaque" type="boolean" value="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbThemChuongPnMouseClicked"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="90" y="400" width="177" height="22"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+  </SubComponents>
+</Form>
