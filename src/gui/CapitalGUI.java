@@ -293,7 +293,7 @@ public class CapitalGUI extends javax.swing.JFrame {
       resetLbColor(jLbBaoCaoThongKe);
       resetLbColor(jLbAccount);
       resetLbColor(jLbCaiDat);
-        
+      ShowPanel(new KhoGUI());
     }//GEN-LAST:event_jLbKhoMouseClicked
 
     private void jLbBaoCaoThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbBaoCaoThongKeMouseClicked
