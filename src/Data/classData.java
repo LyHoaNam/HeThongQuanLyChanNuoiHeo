@@ -50,6 +50,7 @@ public class classData {
     public ResultSet getData(String str)
     {
         ResultSet res=null;
+        //System.out.println(str);
         try
         {
             if(connectDB())
@@ -91,6 +92,7 @@ public class classData {
         }
         return res;
     }
+
             
  
 

@@ -23,6 +23,7 @@ public class CapitalGUI extends javax.swing.JFrame {
      * Creates new form CapitalGUI
      */
     NhanVienELE objNV=null;
+    private String sLoaiNhanVien=null;
     public CapitalGUI() {
         
         initComponents();
@@ -61,6 +62,7 @@ public class CapitalGUI extends javax.swing.JFrame {
     {
         initComponents();
         PhanQuyen(idTaiKhoan,sLoaiNhanVien);
+        this.sLoaiNhanVien=sLoaiNhanVien;
          setLbColor(jLbHeo);
       resetLbColor(jLbKho);
       resetLbColor(jLbBaoCaoThongKe);
@@ -303,7 +305,7 @@ public class CapitalGUI extends javax.swing.JFrame {
       resetLbColor(jLbBaoCaoThongKe);
       resetLbColor(jLbHeo);
       resetLbColor(jLbCaiDat);
-      ShowPanel(new TaiKhoanGUI());
+      ShowPanel(new TaiKhoanGUI(objNV.getMaNhanVien(),this.sLoaiNhanVien));
     }//GEN-LAST:event_jLbAccountMouseClicked
 
     private void jLbCaiDatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbCaiDatMouseClicked

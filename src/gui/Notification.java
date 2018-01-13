@@ -43,12 +43,12 @@ public class Notification extends DefaultTableCellRenderer
        int iHourHT=calendar.get(Calendar.HOUR_OF_DAY);
        // Sau 7h thong bao cho an
        
-       if((value != null)&&(iHourHT-iHour >=5))
+       if((value != null)&&(Math.abs(iHourHT-iHour) >=5))
        {
           
            setIcon (new ImageIcon (this.getClass().getResource("Notification.png")));// thay doi icon
 //           int rnd= (int)(Math.random()*4);
-//           setText("Num:" + rnd);
+          setText("Cho Ăn");
        }
        else
        {

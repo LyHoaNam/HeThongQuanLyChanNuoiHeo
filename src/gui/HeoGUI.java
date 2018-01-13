@@ -149,6 +149,7 @@ public class HeoGUI extends javax.swing.JPanel {
         lbThuoc = new javax.swing.JLabel();
         lbMaChuong = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        lbCanNang = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -483,6 +484,14 @@ public class HeoGUI extends javax.swing.JPanel {
         jLabel8.setText("MÃ CHUỒNG:");
         panelMenuLoaiChuong.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
 
+        lbCanNang.setText("Can nang");
+        lbCanNang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbCanNangMouseClicked(evt);
+            }
+        });
+        panelMenuLoaiChuong.add(lbCanNang, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 630, -1, -1));
+
         add(panelMenuLoaiChuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 830, 680));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -683,6 +692,13 @@ public class HeoGUI extends javax.swing.JPanel {
         fr.setVisible(true);
     }//GEN-LAST:event_lbXuatChuongMouseClicked
 
+    private void lbCanNangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCanNangMouseClicked
+        // TODO add your handling code here:
+        String sMaHeo=(String) tbHeo.getModel().getValueAt(tbHeo.getSelectedRow(), 1);
+        CanNangGUI fr=new CanNangGUI(sMaHeo);
+        fr.setVisible(true);
+    }//GEN-LAST:event_lbCanNangMouseClicked
+
        private void setLbColor(JLabel jlb) {
        
         jlb.setBackground(new Color(0,153,120));
@@ -723,6 +739,7 @@ public class HeoGUI extends javax.swing.JPanel {
     private javax.swing.JTextField jTxtSucChua3;
     private javax.swing.JTextField jTxtSucChua4;
     private javax.swing.JTextField jTxt_TimKiem;
+    private javax.swing.JLabel lbCanNang;
     private javax.swing.JLabel lbChuongDeCon;
     private javax.swing.JLabel lbChuongDucGiong;
     private javax.swing.JLabel lbChuongHeoNaiDeCon;

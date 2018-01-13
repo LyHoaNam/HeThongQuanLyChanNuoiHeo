@@ -11,5 +11,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CanNangBUS {
+    classData DB=new classData();
+     public ResultSet getCaNang(String id)
+     {
+         String sql="SELECT * FROM `cannang` WHERE MaHeo='"+id+"'";
+         return DB.getData(sql);
+     }
+     public boolean InsertCanNang(String sdate, String sCanNang,String sMaHeo) throws SQLException
+     {
+         String sql="INSERT INTO `cannang`(`CanNang`, `NgayCan`, `MaHeo`) "
+                 + "VALUES ('"+sCanNang+"','"+sdate+"','"+sMaHeo+"')";
+        if(DB.updateData(sql))
+            return true;
+         return false;
+     }
     
 }
