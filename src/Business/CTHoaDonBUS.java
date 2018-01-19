@@ -15,14 +15,17 @@ import java.util.List;
  */
 public class CTHoaDonBUS {
      classData DB=new classData();
-     public boolean insertCTHD (int MaHD, List<String> lsMaHeo, double DonGia) throws SQLException
+     public boolean insertCTHD (int MaHD, List<String> lsMaHeo, double DonGia,String idChuong) throws SQLException
      {
-        String sql;
+        String sql,sqlmor;
         for (String s : lsMaHeo) {
+            sqlmor="UPDATE `ctchuong` SET `NgayXuatChuong`=now() where MaChuong ='"+idChuong+"' AND MaHeo='"+s+"'";
             sql = "INSERT INTO `cthd` VALUES ("+MaHD+",'"+ s+"',"+DonGia+")";
-            if (!DB.updateData(sql)) {
+            if ((!DB.updateData(sql))) {
                 return false;
             }
+            if(!DB.updateData(sqlmor))
+                    return false;
         }
         return true;
         

@@ -76,22 +76,26 @@ public class ThuocGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelContain = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableThuoc = new javax.swing.JTable();
-        lblMaHeo = new javax.swing.JLabel();
         lbMaHeo = new javax.swing.JLabel();
         dateNgayDungThuoc = new com.toedter.calendar.JDateChooser();
-        lbNgayDungThuoc = new javax.swing.JLabel();
-        lbTenThuoc = new javax.swing.JLabel();
         cbTenThuoc = new javax.swing.JComboBox<>();
-        lbLieuLuong = new javax.swing.JLabel();
         spLieuLuong = new javax.swing.JSpinner();
         cbDonVi = new javax.swing.JComboBox<>();
-        btnThem = new javax.swing.JToggleButton();
-        btnXoa = new javax.swing.JToggleButton();
-        btnXacNhan = new javax.swing.JToggleButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lbXacNhan = new javax.swing.JLabel();
+        lbThem = new javax.swing.JLabel();
+        lbXoa = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        panelContain.setBackground(new java.awt.Color(255, 255, 255));
+        panelContain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tableThuoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,144 +107,115 @@ public class ThuocGUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableThuoc);
 
-        lblMaHeo.setText("Mã heo:");
+        panelContain.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 156, 371, 166));
 
+        lbMaHeo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbMaHeo.setText("jLabel2");
+        panelContain.add(lbMaHeo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         dateNgayDungThuoc.setDateFormatString("yyyy-MM-dd\n");
-
-        lbNgayDungThuoc.setText("Ngày dùng thuốc");
-
-        lbTenThuoc.setText("Tên thuốc:");
+        panelContain.add(dateNgayDungThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 71, 124, -1));
 
         cbTenThuoc.setEditable(true);
         cbTenThuoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        lbLieuLuong.setText("Liều lượng:");
+        cbTenThuoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTenThuocActionPerformed(evt);
+            }
+        });
+        panelContain.add(cbTenThuoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 71, 110, -1));
+        panelContain.add(spLieuLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 40, 73, -1));
 
         cbDonVi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CC", "ML", "Gram", " " }));
+        panelContain.add(cbDonVi, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 40, 55, -1));
 
-        btnThem.setText("Thêm");
-        btnThem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemActionPerformed(evt);
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel3.setText("Mã Heo:");
+        panelContain.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel4.setText("Tên thuốc:");
+        panelContain.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel5.setText("Ngày:");
+        panelContain.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel6.setText("Liều dùng:");
+        panelContain.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
+
+        lbXacNhan.setBackground(new java.awt.Color(0, 153, 102));
+        lbXacNhan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbXacNhan.setForeground(new java.awt.Color(255, 255, 255));
+        lbXacNhan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbXacNhan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/Checkmark_25px.png"))); // NOI18N
+        lbXacNhan.setText("XÁC NHẬN");
+        lbXacNhan.setToolTipText("");
+        lbXacNhan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbXacNhan.setOpaque(true);
+        lbXacNhan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbXacNhanMouseClicked(evt);
             }
         });
+        panelContain.add(lbXacNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 144, -1));
 
-        btnXoa.setText("Xóa");
-        btnXoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoaActionPerformed(evt);
+        lbThem.setBackground(new java.awt.Color(0, 153, 102));
+        lbThem.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbThem.setForeground(new java.awt.Color(255, 255, 255));
+        lbThem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/Positive_25px.png"))); // NOI18N
+        lbThem.setText("THÊM");
+        lbThem.setToolTipText("");
+        lbThem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbThem.setOpaque(true);
+        lbThem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbThemMouseClicked(evt);
             }
         });
+        panelContain.add(lbThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 115, 79, 26));
 
-        btnXacNhan.setText("Xác nhận");
-        btnXacNhan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXacNhanActionPerformed(evt);
+        lbXoa.setBackground(new java.awt.Color(0, 153, 102));
+        lbXoa.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbXoa.setForeground(new java.awt.Color(255, 255, 255));
+        lbXoa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Item/Eraser_25px.png"))); // NOI18N
+        lbXoa.setText("XÓA");
+        lbXoa.setToolTipText("");
+        lbXoa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbXoa.setOpaque(true);
+        lbXoa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbXoaMouseClicked(evt);
             }
         });
+        panelContain.add(lbXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 115, 79, 26));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblMaHeo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lbMaHeo)
-                                .addGap(78, 78, 78)
-                                .addComponent(lbNgayDungThuoc))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbTenThuoc)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbTenThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(lbLieuLuong)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(dateNgayDungThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(spLieuLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbDonVi, 0, 1, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(btnThem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnXoa))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(btnXacNhan)))
-                .addContainerGap(26, Short.MAX_VALUE))
+            .addComponent(panelContain, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbNgayDungThuoc)
-                    .addComponent(dateNgayDungThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbMaHeo)
-                        .addComponent(lblMaHeo)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbTenThuoc)
-                    .addComponent(cbTenThuoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbLieuLuong)
-                    .addComponent(spLieuLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbDonVi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThem)
-                    .addComponent(btnXoa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnXacNhan)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelContain, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+    private void cbTenThuocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTenThuocActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel model =(DefaultTableModel) tableThuoc.getModel();
-        Vector vector= new Vector();
-        int stt= tableThuoc.getRowCount()+1; //Cot So thu tu
-        //themm cac gia tri vao vector
-        vector.add(stt);
-        vector.add(lstMaThuoc.get(cbTenThuoc.getSelectedIndex()));
-        vector.add(cbTenThuoc.getSelectedItem());
-        vector.add(spLieuLuong.getValue());
-        vector.add(cbDonVi.getSelectedItem());
-        int iLieuLuong =(int) spLieuLuong.getValue();
-        if(iLieuLuong > 0)
-            model.addRow(vector); //them vao bang khi lieu luong >0
-    }//GEN-LAST:event_btnThemActionPerformed
+    }//GEN-LAST:event_cbTenThuocActionPerformed
 
-    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        try
-        {
-        ((DefaultTableModel)tableThuoc.getModel()).removeRow(tableThuoc.getSelectedRow());
-        }
-        catch(Exception exc)
-        {
-            System.out.println("Loi o btn Xoa ThuocGUI "+exc);
-        }
-    }//GEN-LAST:event_btnXoaActionPerformed
-
-    private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
+    private void lbXacNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbXacNhanMouseClicked
         ThuocBUS objThuoc=new ThuocBUS();
         int n=tableThuoc.getRowCount(); //So luong hang trong bang
         String sDate=((JTextField) dateNgayDungThuoc.getDateEditor().getUiComponent()).getText();
@@ -266,7 +241,33 @@ public class ThuocGUI extends javax.swing.JFrame {
         else
              JOptionPane.showMessageDialog(null, "Có lỗi trong quá trình nhập",
                   "THÔNG BÁO", JOptionPane.WARNING_MESSAGE);
-    }//GEN-LAST:event_btnXacNhanActionPerformed
+    }//GEN-LAST:event_lbXacNhanMouseClicked
+
+    private void lbThemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbThemMouseClicked
+     DefaultTableModel model =(DefaultTableModel) tableThuoc.getModel();
+        Vector vector= new Vector();
+        int stt= tableThuoc.getRowCount()+1; //Cot So thu tu
+        //themm cac gia tri vao vector
+        vector.add(stt);
+        vector.add(lstMaThuoc.get(cbTenThuoc.getSelectedIndex()));
+        vector.add(cbTenThuoc.getSelectedItem());
+        vector.add(spLieuLuong.getValue());
+        vector.add(cbDonVi.getSelectedItem());
+        int iLieuLuong =(int) spLieuLuong.getValue();
+        if(iLieuLuong > 0)
+            model.addRow(vector); //them vao bang khi lieu luong >0
+    }//GEN-LAST:event_lbThemMouseClicked
+
+    private void lbXoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbXoaMouseClicked
+        try
+        {
+        ((DefaultTableModel)tableThuoc.getModel()).removeRow(tableThuoc.getSelectedRow());
+        }
+        catch(Exception exc)
+        {
+            System.out.println("Loi o btn Xoa ThuocGUI "+exc);
+        }
+    }//GEN-LAST:event_lbXoaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -304,18 +305,19 @@ public class ThuocGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnThem;
-    private javax.swing.JToggleButton btnXacNhan;
-    private javax.swing.JToggleButton btnXoa;
     private javax.swing.JComboBox<String> cbDonVi;
     private javax.swing.JComboBox<String> cbTenThuoc;
     private com.toedter.calendar.JDateChooser dateNgayDungThuoc;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbLieuLuong;
     private javax.swing.JLabel lbMaHeo;
-    private javax.swing.JLabel lbNgayDungThuoc;
-    private javax.swing.JLabel lbTenThuoc;
-    private javax.swing.JLabel lblMaHeo;
+    private javax.swing.JLabel lbThem;
+    private javax.swing.JLabel lbXacNhan;
+    private javax.swing.JLabel lbXoa;
+    private javax.swing.JPanel panelContain;
     private javax.swing.JSpinner spLieuLuong;
     private javax.swing.JTable tableThuoc;
     // End of variables declaration//GEN-END:variables

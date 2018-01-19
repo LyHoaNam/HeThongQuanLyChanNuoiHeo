@@ -18,7 +18,6 @@ public class Notification extends DefaultTableCellRenderer
 {
     @Override
     public Component getTableCellRendererComponent (JTable table,
-                                                    
                                                     Object value,
                                                     boolean isSelected,
                                                     boolean hasFocus,
@@ -28,27 +27,32 @@ public class Notification extends DefaultTableCellRenderer
        {
            this.setBackground(table.getSelectionBackground());
            this.setForeground(table.getSelectionForeground());
+           
        }
        else
        {
            this.setBackground(table.getBackground());
            this.setForeground(table.getForeground());
+           
        }
        NotificationBUS objNo=new NotificationBUS();
        Calendar calendar = Calendar.getInstance();
        String sMaChuong=(String) table.getValueAt(row, 0);
+       
        int iHour = objNo.getGioChoAn(sMaChuong);
        int iHourHT=calendar.get(Calendar.HOUR_OF_DAY);
        // Sau 7h thong bao cho an
-       if((value != null)&&(iHour-iHourHT>=5))
+       
+       if((value != null)&&(Math.abs(iHourHT-iHour) >=5))
        {
-           int rnd =(int)(Math.random()+4);
+          
            setIcon (new ImageIcon (this.getClass().getResource("Notification.png")));// thay doi icon
-           
+//           int rnd= (int)(Math.random()*4);
+          setText("Cho Ăn");
        }
        else
        {
-           
+           //setText((value==null)? "": value.toString());
            setIcon(null);
            //return null;
        }

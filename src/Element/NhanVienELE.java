@@ -26,4 +26,8 @@ public class NhanVienELE {
   {
       return sHoTen;
   }
+  public String getMaNhanVien()
+  {
+      return sMaNhanVien;
+  }
 }

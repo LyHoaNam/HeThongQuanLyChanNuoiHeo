@@ -4,41 +4,97 @@
  * and open the template in the editor.
  */
 package gui;
-import  Business.TaiKhoanBUS;
+
+import Business.CanNangBUS;
+import Business.TaiKhoanBUS;
 import static java.awt.SystemColor.text;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author cuhoa_000
  */
 public class TaiKhoanGUI extends javax.swing.JPanel {
 
-    /**
-     * Creates new form TaiKhoanGUI
-     */
+    private String sMaNhanVien;
+    private String sMaTaiKhoan = null;
+    private boolean OnOffThem = true;
+    private boolean OnOffDoiMK = true;
+
     public TaiKhoanGUI() {
         initComponents();
-        showText();
+
     }
 
-    private void showText()
-    {
-        TaiKhoanBUS bs=new TaiKhoanBUS();
-        ResultSet rs=bs.getTaiKhoan();
-        try
-        {
-            while(rs.next())
-            {
-                txtTest.setText(rs.getString("HoTen"));
+    public TaiKhoanGUI(String idNhanVien,String LoaiNhanVien) {
+        initComponents();
+        this.sMaNhanVien = idNhanVien;
+        showText(idNhanVien,LoaiNhanVien);
+    }
+
+    private void showText(String idNhanVien,String sLoaiNhanVien) {
+        panelChangePass.setVisible(false);
+        TaiKhoanBUS bs = new TaiKhoanBUS();
+        ResultSet rs = bs.getTaiKhoanNhanVien(idNhanVien);
+        try {
+            while (rs.next()) {
+                lbTen.setText(rs.getString("HoTen"));
+                txtMaNhanVien.setText(rs.getString("MaNhanVien"));
+                this.sMaTaiKhoan = rs.getString("MaTaiKhoan");
+                txtNgayVaoLam.setText(rs.getString("NgayVaoLam"));
+                txtMaTaiKhoan.setText(rs.getString("MaTaiKhoan"));
+                txtSoDienThoai.setText(rs.getString("SoDienThoai"));
+                panelNhanVien.setVisible(false);
+                panelThemNhanVien.setVisible(false);
             }
-            
-        }
-        catch(SQLException exc)
-        {
+
+        } catch (SQLException exc) {
             System.out.println(exc);
         }
+        
+        //phanquyen
+        if(!sLoaiNhanVien.equals("ad"))
+            this.lbDanhSachNhanVien.setVisible(false);
     }
+
+    private void showNhanVien() {
+        TaiKhoanBUS objTK = new TaiKhoanBUS();
+        ResultSet rs = objTK.getAllNhanVien();
+        DefaultTableModel model = (DefaultTableModel) tableNhanVien.getModel();
+        model.getDataVector().removeAllElements();
+        model.fireTableDataChanged();
+        try {
+            int i = 1;
+            while (rs.next()) {
+                Vector vector = new Vector();
+                vector.add(i);
+                i++;
+                vector.add(rs.getString("MaNhanVien"));
+                vector.add(rs.getString("HoTen"));
+                vector.add(rs.getString("SoDienThoai"));
+                vector.add(rs.getString("NgayVaoLam"));
+                vector.add(rs.getString("TaiKhoan"));
+                String sNhanVienL = rs.getString("loainhanvien");
+                if (sNhanVienL.equals("k")) {
+                    vector.add("Nhân viên kho");
+                } else {
+                    vector.add("Nhân viên heo");
+                }
+
+                model.addRow(vector);
+            }
+        } catch (SQLException exc) {
+            System.out.println("Loi o TaiKhoanGUI showNhanVien " + exc);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,30 +104,483 @@ public class TaiKhoanGUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtTest = new javax.swing.JTextField();
+        panelContain = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtMaNhanVien = new javax.swing.JTextField();
+        txtSoDienThoai = new javax.swing.JTextField();
+        txtNgayVaoLam = new javax.swing.JTextField();
+        txtMaTaiKhoan = new javax.swing.JTextField();
+        lbDoiThongTin = new javax.swing.JLabel();
+        lbDoiMatKhau = new javax.swing.JLabel();
+        lbTen = new javax.swing.JLabel();
+        panelChangePass = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lbXacNhan = new javax.swing.JLabel();
+        txtMatKhauMoi = new javax.swing.JPasswordField();
+        txtNhapLai = new javax.swing.JPasswordField();
+        txtMatKhauCu = new javax.swing.JPasswordField();
+        panelNhanVien = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableNhanVien = new javax.swing.JTable();
+        lbThem = new javax.swing.JLabel();
+        lbThem1 = new javax.swing.JLabel();
+        lbDanhSachNhanVien = new javax.swing.JLabel();
+        panelThemNhanVien = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        txtHoTenMoi = new javax.swing.JTextField();
+        txtSDTMoi = new javax.swing.JTextField();
+        txtTaiKhoan = new javax.swing.JTextField();
+        txtMatKhau = new javax.swing.JTextField();
+        cbLoaiNhanVien = new javax.swing.JComboBox<>();
+        dateNgayVaoLam = new com.toedter.calendar.JDateChooser();
+        lbXacNhanThemMoi = new javax.swing.JLabel();
 
-        txtTest.setText("jTextField1");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(txtTest, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(463, Short.MAX_VALUE))
+        panelContain.setBackground(new java.awt.Color(255, 255, 255));
+        panelContain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\cuhoa_000\\Desktop\\dream.png")); // NOI18N
+        panelContain.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 189, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel4.setText("Mã nhân viên:");
+        panelContain.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 81, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel5.setText("Số điện thoại:");
+        panelContain.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 109, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel6.setText("Ngày vào làm:");
+        panelContain.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 143, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel7.setText("Mã tài khoản:");
+        panelContain.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 174, -1, -1));
+
+        txtMaNhanVien.setEnabled(false);
+        panelContain.add(txtMaNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 78, 127, -1));
+
+        txtSoDienThoai.setEnabled(false);
+        panelContain.add(txtSoDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 109, 127, -1));
+
+        txtNgayVaoLam.setEnabled(false);
+        panelContain.add(txtNgayVaoLam, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 140, 127, -1));
+
+        txtMaTaiKhoan.setEnabled(false);
+        panelContain.add(txtMaTaiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 171, 127, -1));
+
+        lbDoiThongTin.setBackground(new java.awt.Color(0, 153, 102));
+        lbDoiThongTin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbDoiThongTin.setForeground(new java.awt.Color(255, 255, 255));
+        lbDoiThongTin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbDoiThongTin.setText("Thay đổi thông tin");
+        lbDoiThongTin.setOpaque(true);
+        lbDoiThongTin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbDoiThongTinMouseClicked(evt);
+            }
+        });
+        panelContain.add(lbDoiThongTin, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 151, 22));
+
+        lbDoiMatKhau.setBackground(new java.awt.Color(0, 153, 102));
+        lbDoiMatKhau.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbDoiMatKhau.setForeground(new java.awt.Color(255, 255, 255));
+        lbDoiMatKhau.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbDoiMatKhau.setText("Thay đổi mật khẩu");
+        lbDoiMatKhau.setOpaque(true);
+        lbDoiMatKhau.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbDoiMatKhauMouseClicked(evt);
+            }
+        });
+        panelContain.add(lbDoiMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 151, 22));
+
+        lbTen.setBackground(new java.awt.Color(0, 153, 102));
+        lbTen.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbTen.setForeground(new java.awt.Color(255, 255, 255));
+        lbTen.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbTen.setText("Ten");
+        lbTen.setOpaque(true);
+        panelContain.add(lbTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 45, 209, 22));
+
+        add(panelContain, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 20, 560, 262));
+
+        panelChangePass.setBackground(new java.awt.Color(255, 255, 255));
+        panelChangePass.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel9.setText("Mật khẩu mới");
+        panelChangePass.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 26, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel10.setText("Nhập lại");
+        panelChangePass.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 57, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel11.setText("Mật khẩu cũ");
+        panelChangePass.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 88, -1, -1));
+
+        lbXacNhan.setBackground(new java.awt.Color(0, 153, 102));
+        lbXacNhan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbXacNhan.setForeground(new java.awt.Color(255, 255, 255));
+        lbXacNhan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbXacNhan.setText("Xác nhận");
+        lbXacNhan.setOpaque(true);
+        lbXacNhan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbXacNhanMouseClicked(evt);
+            }
+        });
+        panelChangePass.add(lbXacNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 116, 151, 22));
+        panelChangePass.add(txtMatKhauMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 23, 127, -1));
+        panelChangePass.add(txtNhapLai, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 54, 127, -1));
+        panelChangePass.add(txtMatKhauCu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 85, 127, -1));
+
+        add(panelChangePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 288, 560, 160));
+
+        panelNhanVien.setBackground(new java.awt.Color(255, 255, 255));
+
+        tableNhanVien.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "STT", "MÃ NHÂN VIÊN", "HỌ TÊN", "SĐT", "NGÀY VÀO LÀM", "TÀI KHOẢN", "LOẠI NHÂN VIÊN"
+            }
+        ));
+        jScrollPane1.setViewportView(tableNhanVien);
+        if (tableNhanVien.getColumnModel().getColumnCount() > 0) {
+            tableNhanVien.getColumnModel().getColumn(0).setMinWidth(10);
+            tableNhanVien.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tableNhanVien.getColumnModel().getColumn(3).setPreferredWidth(20);
+        }
+
+        lbThem.setBackground(new java.awt.Color(0, 153, 102));
+        lbThem.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbThem.setForeground(new java.awt.Color(255, 255, 255));
+        lbThem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbThem.setText("Thêm nhân viên");
+        lbThem.setOpaque(true);
+        lbThem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbThemMouseClicked(evt);
+            }
+        });
+
+        lbThem1.setBackground(new java.awt.Color(0, 153, 102));
+        lbThem1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbThem1.setForeground(new java.awt.Color(255, 255, 255));
+        lbThem1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbThem1.setText("Xóa nhân viên");
+        lbThem1.setOpaque(true);
+        lbThem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbThem1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelNhanVienLayout = new javax.swing.GroupLayout(panelNhanVien);
+        panelNhanVien.setLayout(panelNhanVienLayout);
+        panelNhanVienLayout.setHorizontalGroup(
+            panelNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNhanVienLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(panelNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelNhanVienLayout.createSequentialGroup()
+                        .addComponent(lbThem, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbThem1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNhanVienLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(txtTest, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(303, Short.MAX_VALUE))
+        panelNhanVienLayout.setVerticalGroup(
+            panelNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelNhanVienLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbThem, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbThem1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
+
+        add(panelNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 62, -1, 700));
+
+        lbDanhSachNhanVien.setBackground(new java.awt.Color(0, 153, 102));
+        lbDanhSachNhanVien.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbDanhSachNhanVien.setForeground(new java.awt.Color(255, 255, 255));
+        lbDanhSachNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbDanhSachNhanVien.setText("Danh sách nhân viên");
+        lbDanhSachNhanVien.setOpaque(true);
+        lbDanhSachNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbDanhSachNhanVienMouseClicked(evt);
+            }
+        });
+        add(lbDanhSachNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 20, 195, 22));
+
+        panelThemNhanVien.setBackground(new java.awt.Color(255, 255, 255));
+        panelThemNhanVien.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel8.setText("Họ tên:");
+        panelThemNhanVien.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+
+        jLabel2.setBackground(new java.awt.Color(0, 153, 102));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("THÔNG TIN NHÂN VIÊN MỚI");
+        jLabel2.setOpaque(true);
+        panelThemNhanVien.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 16, 177, 22));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel12.setText("Số điện thoại:");
+        panelThemNhanVien.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel13.setText("Ngày vào làm:");
+        panelThemNhanVien.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel14.setText("Tài khoản:");
+        panelThemNhanVien.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel15.setText("Mật khẩu:");
+        panelThemNhanVien.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 153, 102));
+        jLabel16.setText("Loại nhân viên:");
+        panelThemNhanVien.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+        panelThemNhanVien.add(txtHoTenMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 49, 135, -1));
+        panelThemNhanVien.add(txtSDTMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 80, 135, -1));
+        panelThemNhanVien.add(txtTaiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 142, 135, -1));
+        panelThemNhanVien.add(txtMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 173, 135, -1));
+
+        cbLoaiNhanVien.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân viên kho", "Nhân viên heo", "admin" }));
+        panelThemNhanVien.add(cbLoaiNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 204, 133, -1));
+
+        dateNgayVaoLam.setDateFormatString("yyyy-MM-dd");
+        panelThemNhanVien.add(dateNgayVaoLam, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 111, 135, -1));
+
+        lbXacNhanThemMoi.setBackground(new java.awt.Color(0, 153, 102));
+        lbXacNhanThemMoi.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbXacNhanThemMoi.setForeground(new java.awt.Color(255, 255, 255));
+        lbXacNhanThemMoi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbXacNhanThemMoi.setText("Xác nhận");
+        lbXacNhanThemMoi.setOpaque(true);
+        lbXacNhanThemMoi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbXacNhanThemMoiMouseClicked(evt);
+            }
+        });
+        panelThemNhanVien.add(lbXacNhanThemMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 120, 22));
+
+        add(panelThemNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 560, 300));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lbDoiMatKhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDoiMatKhauMouseClicked
+        // TODO add your handling code here:
+        panelChangePass.setVisible(this.OnOffDoiMK);
+        if (this.OnOffDoiMK) {
+            this.OnOffDoiMK = false;
+        } else {
+            this.OnOffDoiMK = true;
+        }
+
+    }//GEN-LAST:event_lbDoiMatKhauMouseClicked
+
+    private void lbDoiThongTinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDoiThongTinMouseClicked
+        // TODO add your handling code here:
+        this.txtNgayVaoLam.enable(true);
+        this.txtSoDienThoai.enable(true);
+
+    }//GEN-LAST:event_lbDoiThongTinMouseClicked
+    private void ResetText() {
+        this.txtMatKhauCu.setText("");
+        this.txtMatKhauMoi.setText("");
+        this.txtNhapLai.setText("");
+    }
+    private void lbXacNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbXacNhanMouseClicked
+        // TODO add your handling code here:
+        TaiKhoanBUS objTK = new TaiKhoanBUS();
+        try {
+            if (txtMatKhauMoi.getText() == txtNhapLai.getText()) {
+                if (objTK.checkMatKhau(txtMatKhauCu.getText(), sMaTaiKhoan)) {
+                    if (objTK.setMatKhau(txtMatKhauMoi.getText(), sMaTaiKhoan)) {
+                        JOptionPane.showMessageDialog(this, "Thay đổi mật khẩu thành công!", "THÔNG BÁO", JOptionPane.DEFAULT_OPTION);
+                        ResetText();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Thay đổi mật khẩu thất bại!", "THÔNG BÁO", JOptionPane.WARNING_MESSAGE);
+                        ResetText();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Mật khẩu cũ không đúng!", "THÔNG BÁO", JOptionPane.WARNING_MESSAGE);
+                    ResetText();
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Nhập lại mật khẩu không đúng!", "THÔNG BÁO", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TaiKhoanGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_lbXacNhanMouseClicked
+
+    private void lbDanhSachNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDanhSachNhanVienMouseClicked
+        // TODO add your handling code here:
+        panelNhanVien.setVisible(true);
+        showNhanVien();
+    }//GEN-LAST:event_lbDanhSachNhanVienMouseClicked
+
+    private void lbThemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbThemMouseClicked
+        // TODO add your handling code here:
+        panelThemNhanVien.setVisible(this.OnOffThem);
+        if (this.OnOffThem) {
+            this.OnOffThem = false;
+        } else {
+            this.OnOffThem = true;
+        }
+    }//GEN-LAST:event_lbThemMouseClicked
+
+    private void lbThem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbThem1MouseClicked
+        // TODO add your handling code here:
+        String sIdTaiKhoan=(String) tableNhanVien.getModel().getValueAt(tableNhanVien.getSelectedRow(), 1);
+        System.out.println(sIdTaiKhoan);
+        if (JOptionPane.showConfirmDialog(null, "Bạn có muốn xóa?", "CẢNH BÁO",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            TaiKhoanBUS objTK=new TaiKhoanBUS();
+            try {
+                if(objTK.DeleteNhanVien(sIdTaiKhoan))
+                {
+                    if(objTK.DeleteTaiKhoan(sIdTaiKhoan))
+                    {
+                        JOptionPane.showMessageDialog(null, "Xóa nhân viên thành công",
+                            "THÔNG BÁO", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+                else
+                       JOptionPane.showMessageDialog(null, "Có lỗi trong quá trình xóa",
+                        "THÔNG BÁO", JOptionPane.WARNING_MESSAGE); 
+                    } catch (SQLException ex) {
+                Logger.getLogger(TaiKhoanGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+        } else {
+            // no option
+        }
+    }//GEN-LAST:event_lbThem1MouseClicked
+    private void ResetNewNV() {
+        txtTaiKhoan.setText("");
+        txtMatKhau.setText("");
+        txtSDTMoi.setText("");
+        txtHoTenMoi.setText("");
+    }
+    private void lbXacNhanThemMoiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbXacNhanThemMoiMouseClicked
+        String sLoaiNhanVien;
+        String sDate = ((JTextField) dateNgayVaoLam.getDateEditor().getUiComponent()).getText();
+        if (cbLoaiNhanVien.getSelectedItem().equals("Nhân viên kho")) {
+            sLoaiNhanVien = "k";
+        } else if (cbLoaiNhanVien.getSelectedItem().equals("Nhân viên heo")) {
+            sLoaiNhanVien = "h";
+        } else {
+            sLoaiNhanVien = "ad";
+        }
+        TaiKhoanBUS objTK = new TaiKhoanBUS();
+        try {
+            if (objTK.InsertTaiKhoan(txtTaiKhoan.getText(), txtMatKhau.getText(), sLoaiNhanVien)) {
+                if (objTK.InsertNhanVien(txtHoTenMoi.getText(), txtSDTMoi.getText(),
+                         sDate, objTK.getLastIdTK())) {
+                    JOptionPane.showMessageDialog(null, "Thêm nhân viên thành công",
+                            "THÔNG BÁO", JOptionPane.INFORMATION_MESSAGE);
+                    ResetNewNV();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Có lỗi trong quá trình thêm",
+                        "THÔNG BÁO", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TaiKhoanGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lbXacNhanThemMoiMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField txtTest;
+    private javax.swing.JComboBox<String> cbLoaiNhanVien;
+    private com.toedter.calendar.JDateChooser dateNgayVaoLam;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbDanhSachNhanVien;
+    private javax.swing.JLabel lbDoiMatKhau;
+    private javax.swing.JLabel lbDoiThongTin;
+    private javax.swing.JLabel lbTen;
+    private javax.swing.JLabel lbThem;
+    private javax.swing.JLabel lbThem1;
+    private javax.swing.JLabel lbXacNhan;
+    private javax.swing.JLabel lbXacNhanThemMoi;
+    private javax.swing.JPanel panelChangePass;
+    private javax.swing.JPanel panelContain;
+    private javax.swing.JPanel panelNhanVien;
+    private javax.swing.JPanel panelThemNhanVien;
+    private javax.swing.JTable tableNhanVien;
+    private javax.swing.JTextField txtHoTenMoi;
+    private javax.swing.JTextField txtMaNhanVien;
+    private javax.swing.JTextField txtMaTaiKhoan;
+    private javax.swing.JTextField txtMatKhau;
+    private javax.swing.JPasswordField txtMatKhauCu;
+    private javax.swing.JPasswordField txtMatKhauMoi;
+    private javax.swing.JTextField txtNgayVaoLam;
+    private javax.swing.JPasswordField txtNhapLai;
+    private javax.swing.JTextField txtSDTMoi;
+    private javax.swing.JTextField txtSoDienThoai;
+    private javax.swing.JTextField txtTaiKhoan;
     // End of variables declaration//GEN-END:variables
 }
