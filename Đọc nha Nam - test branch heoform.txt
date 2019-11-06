@@ -1,0 +1,5 @@
+Không làm vi?c tr?c ti?p trên Heoform.
+T?i 1 nhánh local, làm vi?c trên dó, commit thôi,
+ko c?n push lên.
+Heoform-them, xoa, sua ch?ng h?n.
+R?i m?i h?p nh?t branch này t? local lên global (sever github)
